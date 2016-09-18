@@ -1,13 +1,23 @@
 import service from './<%=moduleName %>.service';
 const SET_TITLE = 'SET_TITLE';
 
-// initial state
+// init state
 export const state = {
   title: Vue.t('<%=moduleName %>.title'),
-  tabs: [
-    { title: Vue.t('<%=moduleName %>.tab1'), component: 'zywh' },
-    { title: Vue.t('<%=moduleName %>.tab2'), component: 'xzwh' }
-  ]
+  options: {
+    pagePath: service.api.addOrEdit_meta,
+    modelName: service.api.addOrEdit_action,
+    outline: false,
+    readonly: false,
+    model: 'v'
+  },
+  tipPop: {
+    save_success: {
+      state: 'success',
+      content: Vue.t('<%=moduleName %>.tipPop_save_success')
+    }
+  },
+  outline: false
 };
 
 // mutations

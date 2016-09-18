@@ -10,5 +10,9 @@ export default {
     getList: `/jcsj-apps-web/<%='${app}'%>/getList`,
     delete: `/jcsj-apps-web/<%='${app}'%>/delete`,
     addOrEdit: `/jcsj-apps-web/<%='${app}'%>/addOrEdit`
+  },
+
+  delete(wids) {
+    return Vue.http.post(this.api.delete, { wids: wids });
   }
 };

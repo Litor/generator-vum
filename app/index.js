@@ -96,14 +96,9 @@ module.exports = yeoman.generators.Base.extend({
             this.prompt(moduleNamePrompts, function(props) {
               this.moduleName = props.moduleName;
               done();
-              /*this.prompt(paperDialogPrompts, function(props) {
-  this.isPaperDialog = props.isPaperDialog;
-  done();
-}.bind(this));
-*/
             }.bind(this));
           }
-        })
+        }.bind(this));
       }.bind(this));
     }
   },
@@ -155,11 +150,13 @@ module.exports = yeoman.generators.Base.extend({
           break;
 
         case 'searchtable':
-          this.template(this.type + '/mock.js', this.moduleName + '/mock.js');
-          this.template(this.type + '/umodule1.css', this.moduleName + '/' + this.moduleName + '.css');
-          this.template(this.type + '/umodule1.js', this.moduleName + '/' + this.moduleName + '.js');
-          this.template(this.type + '/umodule1BS.js', this.moduleName + '/' + this.moduleName + 'BS.js');
-          this.template(this.type + '/umodule1IndexPage.html', this.moduleName + '/' + this.moduleName + 'IndexPage.html');
+          if (this.mainPage) {
+            this.template(this.type + '/routes.js', this.moduleName + '/routes.js');
+          }
+          this.template(this.type + '/umodule1.vue', this.moduleName + '/' + this.moduleName + '.vue');
+          this.template(this.type + '/umodule1.service.js', this.moduleName + '/' + this.moduleName + '.service.js');
+          this.template(this.type + '/umodule1.i18n.js', this.moduleName + '/' + this.moduleName + '.i18n.js');
+          this.template(this.type + '/umodule1.vuex.js', this.moduleName + '/' + this.moduleName + '.vuex.js');
           break;
 
         case 'searchgrid':
@@ -172,20 +169,24 @@ module.exports = yeoman.generators.Base.extend({
           break;
 
         case 'searchcard':
-          this.template(this.type + '/mock.js', this.moduleName + '/mock.js');
-          this.template(this.type + '/umodule1.css', this.moduleName + '/' + this.moduleName + '.css');
-          this.template(this.type + '/umodule1.js', this.moduleName + '/' + this.moduleName + '.js');
-          this.template(this.type + '/umodule1BS.js', this.moduleName + '/' + this.moduleName + 'BS.js');
-          this.template(this.type + '/umodule1CardTpl.html', this.moduleName + '/' + this.moduleName + 'CardTpl.html');
-          this.template(this.type + '/umodule1IndexPage.html', this.moduleName + '/' + this.moduleName + 'IndexPage.html');
+          if (this.mainPage) {
+            this.template(this.type + '/routes.js', this.moduleName + '/routes.js');
+          }
+          this.template(this.type + '/cardTpl.html', this.moduleName + '/cardTpl.html');
+          this.template(this.type + '/umodule1.vue', this.moduleName + '/' + this.moduleName + '.vue');
+          this.template(this.type + '/umodule1.service.js', this.moduleName + '/' + this.moduleName + '.service.js');
+          this.template(this.type + '/umodule1.i18n.js', this.moduleName + '/' + this.moduleName + '.i18n.js');
+          this.template(this.type + '/umodule1.vuex.js', this.moduleName + '/' + this.moduleName + '.vuex.js');
           break;
 
         case 'emapform':
-          this.template(this.type + '/mock.js', this.moduleName + '/mock.js');
-          this.template(this.type + '/umodule1.css', this.moduleName + '/' + this.moduleName + '.css');
-          this.template(this.type + '/umodule1.js', this.moduleName + '/' + this.moduleName + '.js');
-          this.template(this.type + '/umodule1BS.js', this.moduleName + '/' + this.moduleName + 'BS.js');
-          this.template(this.type + '/umodule1IndexPage.html', this.moduleName + '/' + this.moduleName + 'IndexPage.html');
+          if (this.mainPage) {
+            this.template(this.type + '/routes.js', this.moduleName + '/routes.js');
+          }
+          this.template(this.type + '/umodule1.vue', this.moduleName + '/' + this.moduleName + '.vue');
+          this.template(this.type + '/umodule1.service.js', this.moduleName + '/' + this.moduleName + '.service.js');
+          this.template(this.type + '/umodule1.i18n.js', this.moduleName + '/' + this.moduleName + '.i18n.js');
+          this.template(this.type + '/umodule1.vuex.js', this.moduleName + '/' + this.moduleName + '.vuex.js');
           break;
 
         case 'emapformoutline':
@@ -199,10 +200,10 @@ module.exports = yeoman.generators.Base.extend({
         case 'tab':
           if (this.mainPage) {
             this.template(this.type + '/routes.js', this.moduleName + '/routes.js');
-            this.template(this.type + '/i18n.js', this.moduleName + '/' + 'i18n.js');
           }
           this.template(this.type + '/umodule1.vue', this.moduleName + '/' + this.moduleName + '.vue');
           this.template(this.type + '/umodule1.service.js', this.moduleName + '/' + this.moduleName + '.service.js');
+          this.template(this.type + '/umodule1.i18n.js', this.moduleName + '/' + this.moduleName + '.i18n.js');
           this.template(this.type + '/umodule1.vuex.js', this.moduleName + '/' + this.moduleName + '.vuex.js');
           break;
 

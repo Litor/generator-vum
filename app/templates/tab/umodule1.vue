@@ -2,7 +2,7 @@
   <article bh-layout-role="single">
     <h2 v-html="pageopt.title"></h2>
     <section>
-      <compTab :tabs="pageopt.tabs"></compTab>
+      <comp-tab :tabs="pageopt.tabs"></comp-tab>
     </section>
   </article>
 </template>
@@ -15,7 +15,7 @@ export default {
   vuex: {
     getters: {
       pageopt: function(state) {
-        return state.dwwh;
+        return state.<%=moduleName %>;
       }
     }
   }

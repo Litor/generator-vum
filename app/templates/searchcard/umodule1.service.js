@@ -10,5 +10,9 @@ export default {
     getList: `/jcsj-apps-web/<%='${app}'%>/getList`,
     delete: `/jcsj-apps-web/<%='${app}'%>/delete`,
     addOrEdit: `/jcsj-apps-web/<%='${app}'%>/addOrEdit`
+  },
+
+  addOrEdit(info) {
+    return Vue.http.post(this.api.addOrEdit, { <%=moduleName %>: info });
   }
 };

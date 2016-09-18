@@ -1,0 +1,21 @@
+{
+  "name": "webapp",
+  "version": "1.0.0",
+  "description": "Single page application using jQuery",
+  "devDependencies": {
+    "amd-optimize": "^0.6.1",
+    "del": "^2.2.0",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-connect": "^2.3.1",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-uglify": "^1.5.3",
+    "run-sequence": "^1.1.5",
+    "hogan.js": "^3.0.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "wisedu-fe",
+  "license": "MIT"
+}

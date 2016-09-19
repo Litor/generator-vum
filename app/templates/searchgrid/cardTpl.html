@@ -1,0 +1,23 @@
+<div class="sc-panel-thing-1 bh-mh-8 bh-mv-8 <%=moduleName %>-card">
+  <div class="sc-panel-thing-1-image">
+    <img src="http://res.wisedu.com/scenes/public/images/demo/userPanel.jpg">
+  </div>
+  <div class="sc-panel-thing-1-container bh-animate-all bh-animate-fast">
+    <div class="sc-panel-thing-1-description">
+      <div class="sc-panel-thing-1-header">
+        <div class="sc-panel-thing-1-title">{{row.name}}</div>
+      </div>
+      <div class="sc-panel-thing-1-subject">
+        <div class="sc-panel-thing-1-subjectKey sc-width-50">{{$t('<%=moduleName %>.card.admin')}}</div>
+        <div class="sc-panel-thing-1-subjectValue <%=moduleName %>-card-value">{{row.admin}}</div>
+      </div>
+      <div class="sc-panel-thing-1-subject">
+        <div class="sc-panel-thing-1-subjectKey sc-width-50">{{$t('<%=moduleName %>.card.parentDept')}}</div>
+        <div class="sc-panel-thing-1-subjectValue <%=moduleName %>-card-value">{{row.parentDept}}</div>
+      </div>
+    </div>
+    <div class="sc-panel-thing-1-operate bh-animate-bottom bh-animate-fast">
+      <span class="bh-mh-4 opt-button" data-event="<%=moduleName %>:card:edit" data-id="{{row.wid}}">{{$t('<%=moduleName %>.card.edit')}}</span> | <span class="bh-mh-4 opt-button">{{$t('<%=moduleName %>.card.del')}}</span> | <span class="bh-mh-4 opt-button">{{$t('<%=moduleName %>.card.detail')}}</span>
+    </div>
+  </div>
+</div>

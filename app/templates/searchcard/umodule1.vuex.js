@@ -3,38 +3,52 @@ const SET_TITLE = 'SET_TITLE';
 
 // init state
 export const state = {
-  title: '年级维护',
+  title: Vue.t('<%=moduleName %>.title'),
+  paperDialog: {
+    currentView: '<%=moduleName %>',
+    title: Vue.t('<%=moduleName %>.paperDialog.add_title')
+  },
+  propertyDialog: {
+    currentView: '<%=moduleName %>',
+    okEvent: '_SUBPAGE_SAVE_EVENT_',
+    title: Vue.t('<%=moduleName %>.propertyDialog.title'),
+    footerShow: false
+  },
   dialog: {
-    currentView: 'njadd',
-    width: '300px',
-    height: '200px',
-    title: '新增',
-    okEvent: 'njadd:ok'
+    currentView: '<%=moduleName %>',
+    title: Vue.t('<%=moduleName %>.dialog.title')
   },
   buttonList: [{
-    text: '新增',
+    text: Vue.t('<%=moduleName %>.buttonList.add'),
     clickEvent: '<%=moduleName %>:buttonlist:add',
     primary: true
+  }, {
+    text: Vue.t('<%=moduleName %>.buttonList.del'),
+    clickEvent: '<%=moduleName %>:buttonlist:del'
+  }, {
+    text: Vue.t('<%=moduleName %>.buttonList.import'),
+    clickEvent: '<%=moduleName %>:buttonlist:import'
   }],
   simpleSearch: {
-    placeholder: '请输入',
+    placeholder: Vue.t('<%=moduleName %>.simpleSearch.placeholder'),
+    text:Vue.t('<%=moduleName %>.simpleSearch.text'),
     searchEvent: '<%=moduleName %>:search:top'
   },
   tipDialog: {
     del: {
       type: 'warning',
-      title: '您选择需要删除的信息吗？',
+      title: Vue.t('<%=moduleName %>.tipDialog.del'),
       okEvent: '<%=moduleName %>:tipdialog:del'
     }
   },
   tipPop: {
     noselect: {
       state: 'warning',
-      content: '请选择需要删除的信息？'
+      content: Vue.t('<%=moduleName %>.tipPop.noselect')
     },
     del_success: {
       state: 'success',
-      content: '删除成功！'
+      content: Vue.t('<%=moduleName %>.tipPop.del_success')
     }
   },
   emapCard: {

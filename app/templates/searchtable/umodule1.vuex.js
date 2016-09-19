@@ -5,49 +5,50 @@ const SET_TITLE = 'SET_TITLE';
 export const state = {
   title: Vue.t('<%=moduleName %>.title'),
   paperDialog: {
-    currentView: '_SUBPAGE_',
-    title: Vue.t('<%=moduleName %>.paperdialog_add_title')
+    currentView: '<%=moduleName %>',
+    title: Vue.t('<%=moduleName %>.paperDialog.add_title')
   },
   propertyDialog: {
-    currentView: '_SUBPAGE_',
+    currentView: '<%=moduleName %>',
     okEvent: '_SUBPAGE_SAVE_EVENT_',
-    title: Vue.t('<%=moduleName %>.propertydialog_title'),
+    title: Vue.t('<%=moduleName %>.propertyDialog.title'),
     footerShow: false
   },
   dialog: {
-    currentView: '_SUBPAGE_',
-    title: Vue.t('<%=moduleName %>.dialog_title')
+    currentView: '<%=moduleName %>',
+    title: Vue.t('<%=moduleName %>.dialog.title')
   },
   buttonList: [{
-    text: Vue.t('<%=moduleName %>.button_add'),
+    text: Vue.t('<%=moduleName %>.buttonList.add'),
     clickEvent: '<%=moduleName %>:buttonlist:add',
     primary: true
   }, {
-    text: Vue.t('<%=moduleName %>.button_delete'),
+    text: Vue.t('<%=moduleName %>.buttonList.del'),
     clickEvent: '<%=moduleName %>:buttonlist:del'
   }, {
-    text: Vue.t('<%=moduleName %>.button_import'),
+    text: Vue.t('<%=moduleName %>.buttonList.import'),
     clickEvent: '<%=moduleName %>:buttonlist:import'
   }],
   simpleSearch: {
-    placeholder: Vue.t('<%=moduleName %>.search_placeholder'),
+    placeholder: Vue.t('<%=moduleName %>.simpleSearch.placeholder'),
+    text:Vue.t('<%=moduleName %>.simpleSearch.text'),
     searchEvent: '<%=moduleName %>:search:top'
   },
   tipDialog: {
     del: {
       type: 'warning',
-      title: Vue.t('<%=moduleName %>.tipDialog_del_title'),
+      title: Vue.t('<%=moduleName %>.tipDialog.del'),
       okEvent: '<%=moduleName %>:tipdialog:del'
     }
   },
   tipPop: {
     noselect: {
       state: 'warning',
-      content: Vue.t('<%=moduleName %>.tipPop_noselect')
+      content: Vue.t('<%=moduleName %>.tipPop.noselect')
     },
     del_success: {
       state: 'success',
-      content: Vue.t('<%=moduleName %>.tipPop_del_success')
+      content: Vue.t('<%=moduleName %>.tipPop.del_success')
     }
   },
   emapDatatable: {
@@ -69,18 +70,18 @@ export const state = {
     sortable: true,
     columnsReorder: true,
     operations: {
-      title: Vue.t('<%=moduleName %>.table_opt'),
+      title: Vue.t('<%=moduleName %>.table.opt_title'),
       width: 150,
       items: [{
-        title: Vue.t('<%=moduleName %>.table_opt_edit'),
+        title: Vue.t('<%=moduleName %>.table.opt_edit'),
         name: '<%=moduleName %>:table:edit',
         type: 'link'
       }, {
-        title: Vue.t('<%=moduleName %>.table_opt_detail'),
+        title: Vue.t('<%=moduleName %>.table.opt_detail'),
         name: '<%=moduleName %>:table:detail',
         type: 'link'
       }, {
-        title: Vue.t('<%=moduleName %>.table_opt_delete'),
+        title: Vue.t('<%=moduleName %>.table.opt_delete'),
         name: '<%=moduleName %>:table:del',
         type: 'link'
       }]

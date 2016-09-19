@@ -11,9 +11,11 @@
 <script>
 import service from './<%=moduleName %>.service'
 import EmapCard from 'bh-vue/emap-card/EmapCard.vue'
+import simpleSearch from 'bh-vue/simple-search/simpleSearch.vue'
+import buttonList from 'bh-vue/button-list/buttonList.vue'
 
 export default {
-  components: { EmapCard },
+  components: { EmapCard, simpleSearch, buttonList },
 
   vuex: {
     getters: {

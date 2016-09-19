@@ -37,7 +37,7 @@ module.exports = yeoman.generators.Base.extend({
         name: 'isPaperDialog',
         type: 'confirm',
         defaults: false,
-        message: "does page show in paperdialog?",
+        message: "does page show in paperdialog?"
       }];
 
       var prompts = [{
@@ -56,97 +56,102 @@ module.exports = yeoman.generators.Base.extend({
           value: 'searchtable'
         }, {
           name: 'searchgrid',
-          value: 'searchgrid',
+          value: 'searchgrid'
         }, {
           name: 'searchcard',
-          value: 'searchcard',
+          value: 'searchcard'
         }, {
           name: 'emapform',
-          value: 'emapform',
-        }, {
-          name: 'emapformoutline',
-          value: 'emapformoutline',
-        }, {
-          name: 'propertydialog',
-          value: 'propertydialog',
+          value: 'emapform'
         }, {
           name: 'tab',
-          value: 'tab',
-        }, {
-          name: 'tabiframe',
-          value: 'tabiframe',
-        }, {
+          value: 'tab'
+        }
+        /*, {
           name: 'wizard',
-          value: 'wizard',
-        }]
+          value: 'wizard'
+        }*/
+        ]
       }];
 
       this.prompt(prompts, function(props) {
         this.type = props.type;
 
-        this.prompt(mainPagePrompts, function(props) {
-          this.mainPage = props.mainPage;
-          if (this.type === 'ubase') {
-            this.prompt(moduleNamePromptsApp, function(props) {
-              this.moduleName = props.moduleName;
-              done();
-            }.bind(this));
+        if (this.type === 'ubase') {
+          this.prompt(moduleNamePromptsApp, function(props) {
+            this.moduleName = props.moduleName;
+            done();
+          }.bind(this));
 
-          } else {
+        } else {
+          this.prompt(mainPagePrompts, function(props) {
+            this.mainPage = props.mainPage;
             this.prompt(moduleNamePrompts, function(props) {
               this.moduleName = props.moduleName;
               done();
             }.bind(this));
-          }
-        }.bind(this));
+          }.bind(this));
+        }
       }.bind(this));
     }
   },
 
   writing: {
     app: function() {
-      this.mkdir(this.moduleName);
       switch (this.type) {
         case 'ubase':
-          this.mkdir(this.moduleName + '/modules');
-          this.mkdir(this.moduleName + '/public/commonpage');
-          this.mkdir(this.moduleName + '/public/css');
-          this.mkdir(this.moduleName + '/public/images');
+          this.mkdir('src');
+          this.mkdir('src/components');
+          this.mkdir('src/pages');
+          this.mkdir('src/statics/meta-info');
           this.copy(
-            this.templatePath(this.type + '/style.css'),
-            this.destinationPath(this.moduleName + '/public/css/style.css')
-          );
-          this.copy(
-            this.templatePath(this.type + '/config.js'),
-            this.destinationPath(this.moduleName + '/config.js')
+            this.templatePath(this.type + '/.babelrc'),
+            this.destinationPath('.babelrc')
           );
           this.copy(
             this.templatePath(this.type + '/.editorconfig'),
-            this.destinationPath(this.moduleName + '/.editorconfig')
+            this.destinationPath('.editorconfig')
           );
           this.copy(
             this.templatePath(this.type + '/.eslintrc'),
-            this.destinationPath(this.moduleName + '/.eslintrc')
+            this.destinationPath('.eslintrc')
           );
           this.copy(
-            this.templatePath(this.type + '/gulpfile.js'),
-            this.destinationPath(this.moduleName + '/gulpfile.js')
+            this.templatePath(this.type + '/.gitignore'),
+            this.destinationPath('.gitignore')
           );
           this.copy(
-            this.templatePath(this.type + '/index.html'),
-            this.destinationPath(this.moduleName + '/index.html')
+            this.templatePath(this.type + '/gulpfile.babel.js'),
+            this.destinationPath('gulpfile.babel.js')
+          );
+
+          this.template(this.type + '/package.json', 'package.json');
+          this.copy(
+            this.templatePath(this.type + '/README.md'),
+            this.destinationPath('README.md')
+          );
+          this.template(this.type + '/src/index.html', 'src/index.html');
+          this.copy(
+            this.templatePath(this.type + '/src/config.json'),
+            this.destinationPath('src/config.json')
           );
           this.copy(
-            this.templatePath(this.type + '/package.json'),
-            this.destinationPath(this.moduleName + '/package.json')
+            this.templatePath(this.type + '/node_modules.zip'),
+            this.destinationPath('node_modules.zip')
+          );
+          this.copy(
+            this.templatePath(this.type + '/update.bat'),
+            this.destinationPath('update.bat')
           );
           break;
         case 'simple':
-          this.template(this.type + '/mock.js', this.moduleName + '/mock.js');
-          this.template(this.type + '/umodule1.css', this.moduleName + '/' + this.moduleName + '.css');
-          this.template(this.type + '/umodule1.js', this.moduleName + '/' + this.moduleName + '.js');
-          this.template(this.type + '/umodule1BS.js', this.moduleName + '/' + this.moduleName + 'BS.js');
-          this.template(this.type + '/umodule1IndexPage.html', this.moduleName + '/' + this.moduleName + 'IndexPage.html');
+          if (this.mainPage) {
+            this.template(this.type + '/routes.js', this.moduleName + '/routes.js');
+          }
+          this.template(this.type + '/umodule1.vue', this.moduleName + '/' + this.moduleName + '.vue');
+          this.template(this.type + '/umodule1.service.js', this.moduleName + '/' + this.moduleName + '.service.js');
+          this.template(this.type + '/umodule1.i18n.js', this.moduleName + '/' + this.moduleName + '.i18n.js');
+          this.template(this.type + '/umodule1.vuex.js', this.moduleName + '/' + this.moduleName + '.vuex.js');
           break;
 
         case 'searchtable':
@@ -160,12 +165,14 @@ module.exports = yeoman.generators.Base.extend({
           break;
 
         case 'searchgrid':
-          this.template(this.type + '/mock.js', this.moduleName + '/mock.js');
-          this.template(this.type + '/umodule1.css', this.moduleName + '/' + this.moduleName + '.css');
-          this.template(this.type + '/umodule1.js', this.moduleName + '/' + this.moduleName + '.js');
-          this.template(this.type + '/umodule1BS.js', this.moduleName + '/' + this.moduleName + 'BS.js');
-          this.template(this.type + '/umodule1CardTpl.html', this.moduleName + '/' + this.moduleName + 'CardTpl.html');
-          this.template(this.type + '/umodule1IndexPage.html', this.moduleName + '/' + this.moduleName + 'IndexPage.html');
+          if (this.mainPage) {
+            this.template(this.type + '/routes.js', this.moduleName + '/routes.js');
+          }
+          this.template(this.type + '/cardTpl.html', this.moduleName + '/cardTpl.html');
+          this.template(this.type + '/umodule1.vue', this.moduleName + '/' + this.moduleName + '.vue');
+          this.template(this.type + '/umodule1.service.js', this.moduleName + '/' + this.moduleName + '.service.js');
+          this.template(this.type + '/umodule1.i18n.js', this.moduleName + '/' + this.moduleName + '.i18n.js');
+          this.template(this.type + '/umodule1.vuex.js', this.moduleName + '/' + this.moduleName + '.vuex.js');
           break;
 
         case 'searchcard':
@@ -189,14 +196,6 @@ module.exports = yeoman.generators.Base.extend({
           this.template(this.type + '/umodule1.vuex.js', this.moduleName + '/' + this.moduleName + '.vuex.js');
           break;
 
-        case 'emapformoutline':
-          this.template(this.type + '/mock.js', this.moduleName + '/mock.js');
-          this.template(this.type + '/umodule1.css', this.moduleName + '/' + this.moduleName + '.css');
-          this.template(this.type + '/umodule1.js', this.moduleName + '/' + this.moduleName + '.js');
-          this.template(this.type + '/umodule1BS.js', this.moduleName + '/' + this.moduleName + 'BS.js');
-          this.template(this.type + '/umodule1IndexPage.html', this.moduleName + '/' + this.moduleName + 'IndexPage.html');
-          break;
-
         case 'tab':
           if (this.mainPage) {
             this.template(this.type + '/routes.js', this.moduleName + '/routes.js');
@@ -207,15 +206,6 @@ module.exports = yeoman.generators.Base.extend({
           this.template(this.type + '/umodule1.vuex.js', this.moduleName + '/' + this.moduleName + '.vuex.js');
           break;
 
-        case 'tabiframe':
-          this.template(this.type + '/mock.js', this.moduleName + '/mock.js');
-          this.template(this.type + '/umodule1.css', this.moduleName + '/' + this.moduleName + '.css');
-          this.template(this.type + '/umodule1.js', this.moduleName + '/' + this.moduleName + '.js');
-          this.template(this.type + '/umodule1BS.js', this.moduleName + '/' + this.moduleName + 'BS.js');
-          this.template(this.type + '/umodule1IndexPage.html', this.moduleName + '/' + this.moduleName + 'IndexPage.html');
-          this.template(this.type + '/umodule1TabTpl.html', this.moduleName + '/' + this.moduleName + 'TabTpl.html');
-          break;
-
         case 'wizard':
           this.template(this.type + '/mock.js', this.moduleName + '/mock.js');
           this.template(this.type + '/umodule1.css', this.moduleName + '/' + this.moduleName + '.css');
@@ -224,12 +214,6 @@ module.exports = yeoman.generators.Base.extend({
           this.template(this.type + '/umodule1IndexPage.html', this.moduleName + '/' + this.moduleName + 'IndexPage.html');
           break;
 
-        case 'propertydialog':
-          this.template(this.type + '/mock.js', this.moduleName + '/mock.js');
-          this.template(this.type + '/umodule1.css', this.moduleName + '/' + this.moduleName + '.css');
-          this.template(this.type + '/umodule1.js', this.moduleName + '/' + this.moduleName + '.js');
-          this.template(this.type + '/umodule1BS.js', this.moduleName + '/' + this.moduleName + 'BS.js');
-          break;
       }
     }
   }

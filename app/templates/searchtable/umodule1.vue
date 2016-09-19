@@ -11,9 +11,11 @@
 <script>
 import service from './<%=moduleName %>.service'
 import EmapDatatable from 'bh-vue/emap-datatable/emapDatatable.vue'
+import simpleSearch from 'bh-vue/simple-search/simpleSearch.vue'
+import buttonList from 'bh-vue/button-list/buttonList.vue'
 
 export default {
-  components: { EmapDatatable },
+  components: { EmapDatatable, simpleSearch, buttonList },
 
   vuex: {
     getters: {
@@ -30,7 +32,7 @@ export default {
     },
 
     '<%=moduleName %>:buttonlist:add': function() {
-      this.pageopt.paperDialog.title = Vue.t('<%=moduleName %>.paperdialog_add_title')
+      this.pageopt.paperDialog.title = Vue.t('<%=moduleName %>.paperDialog.add_title')
       Vue.paperDialog(this)
     },
 
@@ -49,7 +51,7 @@ export default {
     },
 
     '<%=moduleName %>:table:edit': function(row) {
-      this.pageopt.paperDialog.title = Vue.t('<%=moduleName %>.paperdialog_edit_title')
+      this.pageopt.paperDialog.title = Vue.t('<%=moduleName %>.paperDialog.edit_title')
       Vue.paperDialog(this)
       this.$broadcast('addedit:setvalue', row)
     },

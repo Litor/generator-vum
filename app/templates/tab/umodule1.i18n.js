@@ -1,11 +1,7 @@
 var cn = {
-  title: '国际化测试',
+  title: '标题',
   tab1: '专业',
   tab2: '学制'
 };
 
-var en = {
-
-};
-
-export default { cn, en };
+export default { cn };

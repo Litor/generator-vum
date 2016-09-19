@@ -48,13 +48,6 @@ gulp.task('connect', () =>
           headers: {
             Connection: 'keep-alive'
           }
-        }),
-        proxy('/WeCloud', {
-          target: 'http://res.wisedu.com',
-          changeOrigin: true,
-          headers: {
-            Connection: 'keep-alive'
-          }
         })
       ];
     }

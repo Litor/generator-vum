@@ -26,9 +26,9 @@ export default {
   },
 
   events: {
-    '<%=moduleName %>:table:detail': function(row) {
-      this.pageopt.propertyDialog.title = row['name']
-      Vue.propertyDialog(this)
+    '<%=moduleName %>:search:top': function() {
+      var keyword = this.$refs.simplesearch.keyword
+      this.$refs.table.reload({ searchContent: keyword })
     },
 
     '<%=moduleName %>:buttonlist:add': function() {
@@ -45,9 +45,13 @@ export default {
       Vue.tipDialog(this, 'del')
     },
 
-    '<%=moduleName %>:search:top': function() {
-      var keyword = this.$refs.simplesearch.keyword
-      this.$refs.table.reload({ searchContent: keyword })
+    '<%=moduleName %>:buttonlist:import': function() {
+      Vue.dialog(this)
+    },
+
+    '<%=moduleName %>:table:detail': function(row) {
+      this.pageopt.propertyDialog.title = row['name']
+      Vue.propertyDialog(this)
     },
 
     '<%=moduleName %>:table:edit': function(row) {
@@ -57,7 +61,7 @@ export default {
     },
 
     '<%=moduleName %>:table:del': function(row) {
-      service.zyDelete([row.wid]).then(({ data }) => {
+      service.delete([row.wid]).then(({ data }) => {
         Vue.tipPop(this, 'del_success')
         this.$refs.table.reload()
       })
@@ -75,11 +79,8 @@ export default {
         Vue.tipPop(this, 'del_success')
         this.$refs.table.reload()
       })
-    },
-
-    '<%=moduleName %>:buttonlist:import': function() {
-      Vue.dialog(this)
     }
+    
   }
 }
 </script>

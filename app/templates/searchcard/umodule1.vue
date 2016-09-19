@@ -35,13 +35,13 @@ export default {
   },
 
   events: {
-    '<%=moduleName %>:buttonlist:add': function() {
-      Vue.dialog(this)
-    },
-
     '<%=moduleName %>:search:top': function() {
       var keyword = this.$refs.simplesearch.keyword
       this.$refs.table.reload({ searchContent: keyword })
+    },
+    
+    '<%=moduleName %>:buttonlist:add': function() {
+      Vue.dialog(this)
     },
 
     '<%=moduleName %>:card:edit':function(id){

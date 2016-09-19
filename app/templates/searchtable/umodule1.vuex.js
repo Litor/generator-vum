@@ -31,7 +31,7 @@ export const state = {
   }],
   simpleSearch: {
     placeholder: Vue.t('<%=moduleName %>.simpleSearch.placeholder'),
-    text:Vue.t('<%=moduleName %>.simpleSearch.text'),
+    text: Vue.t('<%=moduleName %>.simpleSearch.text'),
     searchEvent: '<%=moduleName %>:search:top'
   },
   tipDialog: {

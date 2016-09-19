@@ -26,9 +26,9 @@ export default {
   },
 
   events: {
-    '<%=moduleName %>:grid:detail': function(row) {
-      this.pageopt.propertyDialog.title = row['name']
-      Vue.propertyDialog(this)
+    '<%=moduleName %>:search:top': function() {
+      var keyword = this.$refs.simplesearch.keyword
+      this.$refs.grid.reload({ searchContent: keyword })
     },
 
     '<%=moduleName %>:buttonlist:add': function() {
@@ -45,10 +45,14 @@ export default {
       Vue.tipDialog(this, 'del')
     },
 
-    '<%=moduleName %>:search:top': function() {
-      var keyword = this.$refs.simplesearch.keyword
-      this.$refs.grid.reload({ searchContent: keyword })
+    '<%=moduleName %>:grid:detail': function(row) {
+      this.pageopt.propertyDialog.title = row['name']
+      Vue.propertyDialog(this)
     },
+
+    '<%=moduleName %>:buttonlist:import': function() {
+      Vue.dialog(this)
+    }
 
     '<%=moduleName %>:grid:edit': function(row) {
       this.pageopt.paperDialog.title = Vue.t('<%=moduleName %>.paperDialog.edit_title')
@@ -57,7 +61,7 @@ export default {
     },
 
     '<%=moduleName %>:grid:del': function(row) {
-      service.zyDelete([row.wid]).then(({ data }) => {
+      service.delete([row.wid]).then(({ data }) => {
         Vue.tipPop(this, 'del_success')
         this.$refs.grid.reload()
       })
@@ -75,11 +79,8 @@ export default {
         Vue.tipPop(this, 'del_success')
         this.$refs.grid.reload()
       })
-    },
-
-    '<%=moduleName %>:buttonlist:import': function() {
-      Vue.dialog(this)
     }
+    
   }
 }
 </script>

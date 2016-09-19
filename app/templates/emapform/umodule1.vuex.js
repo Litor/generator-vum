@@ -14,7 +14,7 @@ export const state = {
   tipPop: {
     save_success: {
       state: 'success',
-      content: Vue.t('<%=moduleName %>.tipPop_save_success')
+      content: Vue.t('<%=moduleName %>.tipPop.save_success')
     }
   },
   outline: false

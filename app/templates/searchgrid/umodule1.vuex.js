@@ -16,6 +16,7 @@ export const state = {
   },
   dialog: {
     currentView: '<%=moduleName %>',
+    okEvent: '_SUBPAGE_SAVE_EVENT_',
     title: Vue.t('<%=moduleName %>.dialog.title')
   },
   buttonList: [{

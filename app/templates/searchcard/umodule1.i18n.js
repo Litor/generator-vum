@@ -5,7 +5,9 @@ var cn = {
     edit_title: '纸质弹框编辑标题'
   },
   propertyDialog: {
-    title: '属性弹框标题'
+    title: '标题',
+    add_title: '新增标题',
+    edit_title: '编辑标题'
   },
   dialog: {
     title: '对话框标题'

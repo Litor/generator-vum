@@ -10,7 +10,7 @@
 </template>
 <script>
 import service from './<%=moduleName %>.service'
-import EmapCard from 'bh-vue/emap-card/EmapCard.vue'
+import EmapCard from 'bh-vue/emap-card/emapCard.vue'
 import simpleSearch from 'bh-vue/simple-search/simpleSearch.vue'
 import buttonList from 'bh-vue/button-list/buttonList.vue'
 
@@ -39,7 +39,7 @@ export default {
       var keyword = this.$refs.simplesearch.keyword
       this.$refs.table.reload({ searchContent: keyword })
     },
-    
+
     '<%=moduleName %>:buttonlist:add': function() {
       Vue.dialog(this)
     },

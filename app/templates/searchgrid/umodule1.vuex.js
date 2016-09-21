@@ -31,7 +31,7 @@ export const state = {
   }],
   simpleSearch: {
     placeholder: Vue.t('<%=moduleName %>.simpleSearch.placeholder'),
-    text:Vue.t('<%=moduleName %>.simpleSearch.text'),
+    text: Vue.t('<%=moduleName %>.simpleSearch.text'),
     searchEvent: '<%=moduleName %>:search:top'
   },
   tipDialog: {
@@ -66,19 +66,27 @@ export const state = {
           return value ? '有效' : '无效';
         }
       }
-    }, {
-      colIndex: 'last',
-      type: 'tpl',
-      width: 300,
-      column: {
-        text: Vue.t('<%=moduleName %>.grid.opt_title'),
-        cellsRenderer: function(row, column, value, rowData) {
-          return "<a href='javascript:void(0)' data-name='<%=moduleName %>:grid:edit'  class='opt-button' style='padding: 0 5px;' data-row=" + JSON.stringify(rowData) + ">编辑</a>"
-        }
-      }
     }],
+    checkable: true,
     sortable: true,
-    columnsReorder: true
+    columnsReorder: true,
+    operations: {
+      title: Vue.t('<%=moduleName %>.grid.opt_title'),
+      width: 150,
+      items: [{
+        title: Vue.t('<%=moduleName %>.grid.opt_edit'),
+        name: '<%=moduleName %>:grid:edit',
+        type: 'link'
+      }, {
+        title: Vue.t('<%=moduleName %>.grid.opt_detail'),
+        name: '<%=moduleName %>:grid:detail',
+        type: 'link'
+      }, {
+        title: Vue.t('<%=moduleName %>.grid.opt_delete'),
+        name: '<%=moduleName %>:grid:del',
+        type: 'link'
+      }]
+    }
   }
 };
 

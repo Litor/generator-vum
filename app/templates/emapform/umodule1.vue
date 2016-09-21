@@ -1,5 +1,14 @@
 <template>
-  <emap-form v-ref:form offset-top=0 :options="pageopt.options" :outline="pageopt.outline"></emap-form>
+  <article bh-layout-role="single">
+    <h2 v-html="pageopt.title"></h2>
+    <section>
+      <emap-form v-ref:form offset-top=0 :options="pageopt.options" :outline="pageopt.outline"></emap-form>
+    </section>
+    <footer>
+      <a class="bh-btn bh-btn-primary waves-effect" @click="save()">保存</a>
+      <a class="bh-btn bh-btn-default waves-effect" @click="cancel()">取消</a>
+    </footer>
+  </article>
 </template>
 <script>
 import service from './<%=moduleName %>.service'

@@ -52,7 +52,7 @@ export default {
 
     '<%=moduleName %>:buttonlist:import': function() {
       Vue.dialog(this)
-    }
+    },
 
     '<%=moduleName %>:grid:edit': function(row) {
       this.pageopt.paperDialog.title = Vue.t('<%=moduleName %>.paperDialog.edit_title')
@@ -84,3 +84,23 @@ export default {
   }
 }
 </script>
+<style type="text/css">
+.<%=moduleName %>-card-value {
+  width: 106px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  vertical-align: bottom;
+}
+
+.<%=moduleName %>-card .sc-panel-thing-1-container {
+  padding-right: 4px;
+}
+
+.<%=moduleName %>-card .sc-panel-thing-1-title {
+  width: 158px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+</style>

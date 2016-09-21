@@ -1,5 +1,5 @@
 import service from './<%=moduleName %>.service';
-const SET_TITLE = 'SET_TITLE';
+const FORM_READYONLY = 'FORM_READYONLY';
 
 // init state
 export const state = {
@@ -22,12 +22,12 @@ export const state = {
 
 // mutations
 export const mutations = {
-  [SET_TITLE](state, data) {
-    state.title = data.title;
+  [FORM_READYONLY](state, data) {
+    state.options.readonly = data.readonly;
   }
 };
 
 // actions
-export const setTitle = ({ actions, dispatch }, title) => {
-  return dispatch(SET_TITLE, { title: title });
+export const setFormReadOnly = ({ actions, dispatch }, readonly) => {
+  return dispatch(FORM_READYONLY, { readonly: readonly });
 };

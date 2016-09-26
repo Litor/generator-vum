@@ -117,7 +117,7 @@ module.exports = yeoman.generators.Base.extend({
             this.destinationPath('.eslintrc')
           );
           this.copy(
-            this.templatePath(this.type + '/.gitignore'),
+            this.templatePath(this.type + '/gitignore'),
             this.destinationPath('.gitignore')
           );
           this.copy(

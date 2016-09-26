@@ -130,10 +130,10 @@ module.exports = yeoman.generators.Base.extend({
             this.templatePath(this.type + '/README.md'),
             this.destinationPath('README.md')
           );
-          this.copy(
+          /*this.copy(
             this.templatePath(this.type + '/node_modules.zip'),
             this.destinationPath('node_modules.zip')
-          );
+          );*/
           this.copy(
             this.templatePath(this.type + '/update.bat'),
             this.destinationPath('update.bat')

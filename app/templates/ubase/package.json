@@ -43,7 +43,7 @@
     "ubase-vue": "^1.0.14",
     "url-loader": "^0.5.7",
     "vinyl-named": "^1.1.0",
-    "vue-hot-reload-api": "^2.0.6",
+    "vue-hot-reload-api": "1.2.0",
     "vue-html-loader": "^1.2.3",
     "vue-loader": "^8.5.3",
     "vue-style-loader": "^1.0.0",

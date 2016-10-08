@@ -11,10 +11,10 @@ export const state = {
     readonly: false,
     model: 'v'
   },
-  tipPop: {
+  tip: {
     save_success: {
       state: 'success',
-      content: Vue.t('<%=moduleName %>.tipPop.save_success')
+      content: Vue.t('<%=moduleName %>.tip.save_success')
     }
   },
   outline: false

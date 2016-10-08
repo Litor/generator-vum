@@ -25,6 +25,26 @@ export default {
     }
   },
 
+  ready() {
+    var self = this;
+    $(this.$el).on('click', '.opt-button', function(e) {
+
+      var rowId = $(this).attr('data-id');
+      var event = $(this).attr('data-event');
+      self.$emit(event, rowId);
+    })
+  },
+
+  ready() {
+    var self = this;
+    $(this.$el).on('click', '.opt-button', function(e) {
+
+      var rowId = $(this).attr('data-id');
+      var event = $(this).attr('data-event');
+      self.$dispatch(event, rowId);
+    })
+  },
+
   events: {
     '<%=moduleName %>:search:top': function() {
       var keyword = this.$refs.simplesearch.keyword
@@ -37,13 +57,13 @@ export default {
     },
 
     '<%=moduleName %>:buttonlist:del': function() {
-      var checked = this.$refs.table.checkedRecords()
+      var checked = this.$refs.grid.getGrid().checkedRecords()
       this.pageopt.selectedRows = checked
       if (checked.length === 0) {
-        Vue.tipPop(this, 'noselect')
+        Vue.tip(this, 'noselect')
         return
       }
-      Vue.tipDialog(this, 'del')
+      Vue.toast(this, 'del')
     },
 
     '<%=moduleName %>:grid:detail': function(row) {
@@ -63,10 +83,10 @@ export default {
 
     '<%=moduleName %>:grid:del': function(row) {
       this.pageopt.selectedRows = [row]
-      Vue.tipDialog(this, 'del')
+      Vue.toast(this, 'del')
     },
 
-    '<%=moduleName %>:tipdialog:del': function() {
+    '<%=moduleName %>:toast:del': function() {
       var checked = this.pageopt.selectedRows
       var wids = []
 
@@ -75,7 +95,7 @@ export default {
       })
 
       service.delete(wids).then(({ data }) => {
-        Vue.tipPop(this, 'del_success')
+        Vue.tip(this, 'del_success')
         this.$refs.grid.reload()
       })
     }

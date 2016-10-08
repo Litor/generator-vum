@@ -18,21 +18,21 @@ export const state = {
     currentView: '<%=moduleName %>',
     title: Vue.t('<%=moduleName %>.dialog.title')
   },
-  tipDialog: {
+  toast: {
     del: {
       type: 'warning',
-      title: Vue.t('<%=moduleName %>.tipDialog.del'),
-      okEvent: '<%=moduleName %>:tipdialog:del'
+      title: Vue.t('<%=moduleName %>.toast.del'),
+      okEvent: '<%=moduleName %>:toast:del'
     }
   },
-  tipPop: {
+  tip: {
     noselect: {
       state: 'warning',
-      content: Vue.t('<%=moduleName %>.tipPop.noselect')
+      content: Vue.t('<%=moduleName %>.tip.noselect')
     },
     del_success: {
       state: 'success',
-      content: Vue.t('<%=moduleName %>.tipPop.del_success')
+      content: Vue.t('<%=moduleName %>.tip.del_success')
     }
   }
 };

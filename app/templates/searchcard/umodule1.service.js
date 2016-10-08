@@ -9,10 +9,17 @@ export default {
     delete_meta: `../statics/meta-info/<%='${app}'%>_delete.json`,
     getList: `/jcsj-apps-web/<%='${app}'%>/getList`,
     delete: `/jcsj-apps-web/<%='${app}'%>/delete`,
+    getByWid: `/jcsj-apps-web/${app}/getByWid`,
     addOrEdit: `/jcsj-apps-web/<%='${app}'%>/addOrEdit`
   },
 
   addOrEdit(info) {
     return Vue.http.post(this.api.addOrEdit, { <%=moduleName %>: info });
+  },
+
+  getByWid(wid) {
+    return Vue.http.post(this.api.getByWid, { wid: wid }).then(function(datas) {
+      return datas.data.datas.rows[0];
+    });
   }
 };

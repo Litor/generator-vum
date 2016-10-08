@@ -38,6 +38,7 @@ export default {
 
     '<%=moduleName %>:buttonlist:del': function() {
       var checked = this.$refs.table.checkedRecords()
+      this.pageopt.selectedRows = checked
       if (checked.length === 0) {
         Vue.tipPop(this, 'noselect')
         return
@@ -61,14 +62,12 @@ export default {
     },
 
     '<%=moduleName %>:table:del': function(row) {
-      service.delete([row.wid]).then(({ data }) => {
-        Vue.tipPop(this, 'del_success')
-        this.$refs.table.reload()
-      })
+      this.pageopt.selectedRows = [row]
+      Vue.tipDialog(this, 'del')
     },
 
     '<%=moduleName %>:tipdialog:del': function() {
-      var checked = this.$refs.table.checkedRecords()
+      var checked = this.pageopt.selectedRows
       var wids = []
 
       checked.forEach((item) => {

@@ -1,6 +1,7 @@
 var cn = {
   title: '标题',
   paperDialog: {
+    title: '标题',
     add_title: '纸质弹框新增标题',
     edit_title: '纸质弹框编辑标题'
   },
@@ -15,7 +16,8 @@ var cn = {
   buttonList: {
     add: '新增',
     del: '删除',
-    import: '导入'
+    import: '导入',
+    export: '导出'
   },
   simpleSearch: {
     placeholder: '请输入',

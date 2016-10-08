@@ -37,7 +37,8 @@ export default {
     },
 
     '<%=moduleName %>:buttonlist:del': function() {
-      var checked = this.$refs.grid.checkedRecords()
+      var checked = this.$refs.table.checkedRecords()
+      this.pageopt.selectedRows = checked
       if (checked.length === 0) {
         Vue.tipPop(this, 'noselect')
         return
@@ -61,14 +62,12 @@ export default {
     },
 
     '<%=moduleName %>:grid:del': function(row) {
-      service.delete([row.wid]).then(({ data }) => {
-        Vue.tipPop(this, 'del_success')
-        this.$refs.grid.reload()
-      })
+      this.pageopt.selectedRows = [row]
+      Vue.tipDialog(this, 'del')
     },
 
     '<%=moduleName %>:tipdialog:del': function() {
-      var checked = this.$refs.grid.checkedRecords()
+      var checked = this.pageopt.selectedRows
       var wids = []
 
       checked.forEach((item) => {
@@ -93,14 +92,17 @@ export default {
   vertical-align: bottom;
 }
 
-.<%=moduleName %>-card .sc-panel-thing-1-container {
+.<%=moduleName %>-card .sc-panel-thingNoImg-1-container {
   padding-right: 4px;
 }
 
-.<%=moduleName %>-card .sc-panel-thing-1-title {
-  width: 158px;
+.<%=moduleName %>-card .sc-panel-thingNoImg-1-title {
+  max-width: 155px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  display: inline-block;
+  margin-right: 0;
+  vertical-align: middle;
 }
 </style>

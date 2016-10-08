@@ -52,6 +52,7 @@ export const state = {
       content: Vue.t('<%=moduleName %>.tipPop.del_success')
     }
   },
+  selectedRows: [],
   emapGrid: {
     pagePath: service.api.getList_meta,
     url: service.api.getList,

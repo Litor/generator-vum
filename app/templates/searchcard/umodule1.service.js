@@ -9,7 +9,7 @@ export default {
     delete_meta: `../statics/meta-info/<%='${app}'%>_delete.json`,
     getList: `/jcsj-apps-web/<%='${app}'%>/getList`,
     delete: `/jcsj-apps-web/<%='${app}'%>/delete`,
-    getByWid: `/jcsj-apps-web/${app}/getByWid`,
+    getByWid: `/jcsj-apps-web/<%='${app}'%>/getByWid`,
     addOrEdit: `/jcsj-apps-web/<%='${app}'%>/addOrEdit`
   },
 

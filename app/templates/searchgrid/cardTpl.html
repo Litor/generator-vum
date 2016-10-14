@@ -1,8 +1,9 @@
-<div class="sc-panel-thingNoImg-1 bh-mh-8 bh-mv-8 <%=moduleName %>-card">
+<div class="sc-panel-thingNoImg-1 bh-mr-8 bh-mb-8 <%=moduleName %>-card">
   <div class="sc-panel-thingNoImg-1-container bh-animate-all bh-animate-fast">
     <div class="sc-panel-thingNoImg-1-description">
       <div class="sc-panel-thingNoImg-1-header">
         <div class="sc-panel-thingNoImg-1-title">{{row.name}}</div>
+        <a href="javascript:void(0);" class="bh-tag bh-tag-{{row.status?'success':'warning'}}">{{row.status?'已使用':'未使用'}}</a>
       </div>
       <div class="sc-panel-thingNoImg-1-subject">
         <div class="sc-panel-thingNoImg-1-subjectKey sc-width-50">{{$t('<%=moduleName %>.card.admin')}}</div>
@@ -14,7 +15,7 @@
       </div>
     </div>
     <div class="sc-panel-thingNoImg-1-operate bh-animate-bottom bh-animate-fast">
-      <span class="bh-mh-4 opt-button" data-event="<%=moduleName %>:card:edit" data-id="{{row.wid}}">{{$t('<%=moduleName %>.card.edit')}}</span> | <span class="bh-mh-4 opt-button" data-event="<%=moduleName %>:card:del" data-id="{{row.wid}}">{{$t('<%=moduleName %>.card.del')}}</span> | <span class="bh-mh-4 opt-button" data-event="<%=moduleName %>:card:detail" data-id="{{row.wid}}">{{$t('<%=moduleName %>.card.detail')}}</span>
+      <span class="bh-mh-4 opt-button" data-event="<%=moduleName %>:card:edit">{{$t('<%=moduleName %>.card.edit')}}</span> | <span class="bh-mh-4 opt-button" data-event="<%=moduleName %>:card:del">{{$t('<%=moduleName %>.card.del')}}</span> | <span class="bh-mh-4 opt-button" data-event="<%=moduleName %>:card:detail">{{$t('<%=moduleName %>.card.detail')}}</span>
     </div>
   </div>
 </div>

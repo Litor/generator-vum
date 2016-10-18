@@ -15,7 +15,7 @@ export default {
   },
 
   addOrEdit(info) {
-    return Vue.http.post(this.api.addOrEdit, { <%=moduleName %>: info });
+    return Vue.http.post(this.api.addOrEdit, { data: info });
   },
 
   getByWid(wid) {

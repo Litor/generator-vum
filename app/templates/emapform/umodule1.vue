@@ -31,7 +31,7 @@ export default {
     },
     '<%=moduleName %>:save': function() {
       var ret = this.$refs.form.validate()
-      console.log(ret)
+      
       if (!ret) {
         return
       }

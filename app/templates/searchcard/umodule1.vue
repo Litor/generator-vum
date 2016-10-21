@@ -1,9 +1,12 @@
 <template>
   <article bh-layout-role="single">
-    <h2 v-html="pageopt.title"></h2>
+    <h2>{{$t('<%=moduleName %>.title')}}</h2>
     <section>
-      <simple-search v-ref:simplesearch :simple-search="pageopt.simpleSearch"></simple-search>
-      <button-list :button-list="pageopt.buttonList"></button-list>
+      <simple-search v-ref:simplesearch :placeholder="$t('<%=moduleName %>.simpleSearch.placeholder')" :search-event="'<%=moduleName %>:search:top'"></simple-search>
+      <div class="bh-mv-16">
+        <bh-button type="primary" @click="add" :small="false">{{$t('<%=moduleName %>.buttonList.add')}}</bh-button>
+        <bh-button type="primary" @click="del" :small="false">{{$t('<%=moduleName %>.buttonList.del')}}</bh-button>
+      </div>
       <emap-card :options='pageopt.emapCard' v-ref:table></emap-card>
     </section>
   </article>
@@ -12,10 +15,10 @@
 import service from './<%=moduleName %>.service'
 import EmapCard from 'bh-vue/emap-card/emapCard.vue'
 import simpleSearch from 'bh-vue/simple-search/simpleSearch.vue'
-import buttonList from 'bh-vue/button-list/buttonList.vue'
+import bhButton from 'bh-vue/bh-button/bhButton.vue'
 
 export default {
-  components: { EmapCard, simpleSearch, buttonList },
+  components: { EmapCard, simpleSearch, bhButton },
 
   vuex: {
     getters: {
@@ -27,21 +30,31 @@ export default {
 
   ready() {
     var self = this;
-    $(this.$el).on('click', '.opt-button', function(e) {
+    $(this.$el).on('click', '.card-opt-button', function(e) {
       var row = $(this).data('row');
       var event = $(this).attr('data-event');
       self.$dispatch(event, row);
     })
   },
 
+  methods:{
+    add() {
+      Vue.dialog({
+        currentView: '<%=moduleName %>',
+        okEvent: '_SUBPAGE_SAVE_EVENT_',
+        title: Vue.t('<%=moduleName %>.dialog.title')
+      })
+    },
+
+    del() {
+
+    }
+  },
+
   events: {
     '<%=moduleName %>:search:top': function() {
       var keyword = this.$refs.simplesearch.keyword
       this.$refs.table.reload({ searchContent: keyword })
-    },
-
-    '<%=moduleName %>:buttonlist:add': function() {
-      Vue.dialog(this)
     },
 
     '<%=moduleName %>:card:edit':function(row){

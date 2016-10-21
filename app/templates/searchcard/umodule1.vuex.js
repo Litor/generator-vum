@@ -1,6 +1,5 @@
 import service from './<%=moduleName %>.service';
 
-// init state
 export const state = {
   title: Vue.t('<%=moduleName %>.title'),
   paperDialog: {
@@ -57,9 +56,4 @@ export const state = {
     action: service.api.getList_action,
     template: require('./cardTpl.html')
   }
-};
-
-// actions
-export const setTitle = ({ actions, dispatch }, title) => {
-  state.title = title;
 };

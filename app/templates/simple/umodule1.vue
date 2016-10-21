@@ -1,6 +1,6 @@
 <template>
   <article bh-layout-role="single">
-    <h2 v-html="pageopt.title"></h2>
+    <h2>{{$t('<%=moduleName %>.title')}}</h2>
     <section>
       helloworld
     </section>

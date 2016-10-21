@@ -1,6 +1,6 @@
 <template>
   <article bh-layout-role="single">
-    <h2 v-html="pageopt.title"></h2>
+    <h2>{{$t('<%=moduleName %>.title')}}</h2>
     <section>
       <emap-form v-ref:form offset-top=0 :options="pageopt.options" :outline="pageopt.outline"></emap-form>
     </section>
@@ -37,7 +37,10 @@ export default {
       }
       var info = this.$refs.form.getValue()
       service.addOrEdit(info).then(({ data }) => {
-        Vue.tip(this, 'save_success')
+        Vue.tip({
+          state: 'success',
+          content: Vue.t('<%=moduleName %>.tip.save_success')
+        })
         Vue.propertyDialog('hide')
       })
     }

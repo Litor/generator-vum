@@ -1,9 +1,12 @@
 <template>
   <article bh-layout-role="single">
-    <h2 v-html="pageopt.title"></h2>
+    <h2>{{$t('<%=moduleName %>.title')}}</h2>
     <section>
-      <simple-search v-ref:simplesearch :simple-search="pageopt.simpleSearch"></simple-search>
-      <button-list :button-list="pageopt.buttonList"></button-list>
+      <simple-search v-ref:simplesearch :placeholder="$t('<%=moduleName %>.simpleSearch.placeholder')" :search-event="'<%=moduleName %>:search:top'"></simple-search>
+      <div class="bh-mv-16">
+        <bh-button type="primary" @click="add" :small="false">{{$t('<%=moduleName %>.buttonList.add')}}</bh-button>
+        <bh-button type="primary" @click="del" :small="false">{{$t('<%=moduleName %>.buttonList.del')}}</bh-button>
+      </div>
       <emap-grid :options='pageopt.emapGrid' v-ref:grid></emap-grid>
     </section>
   </article>
@@ -12,10 +15,10 @@
 import service from './<%=moduleName %>.service'
 import EmapGrid from 'bh-vue/emap-grid/emapGrid.vue'
 import simpleSearch from 'bh-vue/simple-search/simpleSearch.vue'
-import buttonList from 'bh-vue/button-list/buttonList.vue'
+import bhButton from 'bh-vue/bh-button/bhButton.vue'
 
 export default {
-  components: { EmapGrid, simpleSearch, buttonList },
+  components: { EmapGrid, simpleSearch, bhButton },
 
   vuex: {
     getters: {
@@ -27,21 +30,38 @@ export default {
 
   ready() {
      var self = this;
-    $(this.$el).on('click', '.opt-button', function(e) {
+    $(this.$el).on('click', '.card-opt-button', function(e) {
       var row = $(this).data('row');
       var event = $(this).attr('data-event');
       self.$dispatch(event, row);
     })
   },
 
-  ready() {
-    var self = this;
-    $(this.$el).on('click', '.opt-button', function(e) {
+  methods:{
+    add() {
+      this.pageopt.paperDialog.title = Vue.t('<%=moduleName %>.paperDialog.add_title')
+      Vue.paperDialog({
+        currentView: '<%=moduleName %>',
+        title: Vue.t('<%=moduleName %>.paperDialog.add_title')
+      })
+    },
 
-      var rowId = $(this).attr('data-id');
-      var event = $(this).attr('data-event');
-      self.$dispatch(event, rowId);
-    })
+    del() {
+      var checked = this.$refs.grid.getGrid().checkedRecords()
+      this.pageopt.selectedRows = checked
+      if (checked.length === 0) {
+        Vue.tip({
+          state: 'warning',
+          content: Vue.t('<%=moduleName %>.tip.noselect')
+        })
+        return
+      }
+      Vue.toast({
+        type: 'warning',
+        title: Vue.t('<%=moduleName %>.toast.del'),
+        okEvent: '<%=moduleName %>:toast:del'
+      })
+    }
   },
 
   events: {
@@ -50,39 +70,39 @@ export default {
       this.$refs.grid.reload({ searchContent: keyword })
     },
 
-    '<%=moduleName %>:buttonlist:add': function() {
-      this.pageopt.paperDialog.title = Vue.t('<%=moduleName %>.paperDialog.add_title')
-      Vue.paperDialog(this)
-    },
-
-    '<%=moduleName %>:buttonlist:del': function() {
-      var checked = this.$refs.grid.getGrid().checkedRecords()
-      this.pageopt.selectedRows = checked
-      if (checked.length === 0) {
-        Vue.tip(this, 'noselect')
-        return
-      }
-      Vue.toast(this, 'del')
-    },
-
     '<%=moduleName %>:grid:detail': function(row) {
       this.pageopt.propertyDialog.title = row['name']
-      Vue.propertyDialog(this)
+      Vue.propertyDialog({
+        currentView: '<%=moduleName %>',
+        okEvent: '_SUBPAGE_SAVE_EVENT_',
+        title: Vue.t('<%=moduleName %>.propertyDialog.title'),
+        footerShow: false
+      })
     },
 
     '<%=moduleName %>:buttonlist:import': function() {
-      Vue.dialog(this)
+      Vue.dialog({
+        currentView: '<%=moduleName %>',
+        okEvent: '_SUBPAGE_SAVE_EVENT_',
+        title: Vue.t('<%=moduleName %>.dialog.title')
+      })
     },
 
     '<%=moduleName %>:grid:edit': function(row) {
-      this.pageopt.paperDialog.title = Vue.t('<%=moduleName %>.paperDialog.edit_title')
-      Vue.paperDialog(this)
-      this.$broadcast('addedit:setvalue', row)
+      Vue.paperDialog({
+        currentView: '<%=moduleName %>',
+        title: Vue.t('<%=moduleName %>.paperDialog.edit_title')
+      })
+      Vue.broadcast('addedit:setvalue', row)
     },
 
     '<%=moduleName %>:grid:del': function(row) {
       this.pageopt.selectedRows = [row]
-      Vue.toast(this, 'del')
+      Vue.toast({
+        type: 'warning',
+        title: Vue.t('<%=moduleName %>.toast.del'),
+        okEvent: '<%=moduleName %>:toast:del'
+      })
     },
 
     '<%=moduleName %>:toast:del': function() {
@@ -94,7 +114,10 @@ export default {
       })
 
       service.delete(wids).then(({ data }) => {
-        Vue.tip(this, 'del_success')
+        Vue.tip({
+          state: 'success',
+          content: Vue.t('<%=moduleName %>.tip.del_success')
+        })
         this.$refs.grid.reload()
       })
     },

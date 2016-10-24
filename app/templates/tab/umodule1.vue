@@ -6,7 +6,7 @@
     </section>
   </article>
 </template>
-<script>
+<script  type="text/ecmascript-6">
 import compTab from 'bh-vue/comp-tab/compTab.vue'
 
 export default {

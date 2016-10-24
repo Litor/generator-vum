@@ -6,7 +6,7 @@
     </section>
   </article>
 </template>
-<script>
+<script type="text/ecmascript-6">
 import service from './<%=moduleName %>.service'
 
 export default {

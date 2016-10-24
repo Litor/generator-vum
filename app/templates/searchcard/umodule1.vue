@@ -11,7 +11,7 @@
     </section>
   </article>
 </template>
-<script>
+<script type="text/ecmascript-6">
 import service from './<%=moduleName %>.service'
 import EmapCard from 'bh-vue/emap-card/emapCard.vue'
 import simpleSearch from 'bh-vue/simple-search/simpleSearch.vue'

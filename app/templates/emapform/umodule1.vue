@@ -10,7 +10,7 @@
     </footer>
   </article>
 </template>
-<script>
+<script type="text/ecmascript-6">
 import service from './<%=moduleName %>.service'
 import EmapForm from 'bh-vue/emap-form/emapForm.vue'
 

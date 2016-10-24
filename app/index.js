@@ -175,7 +175,7 @@ module.exports = yeoman.generators.Base.extend({
             this.template(this.type + '/index.html', this.moduleName + '/index.html');
             var basePath = this.moduleName + '/' + this.moduleName + '/';
           }
-          this.template(this.type + '/cardTpl.html', this.moduleName + '/cardTpl.html');
+          this.template(this.type + '/cardTpl.html', basePath + '/cardTpl.html');
           this.template(this.type + '/umodule1.vue', basePath + this.moduleName + '.vue');
           this.template(this.type + '/umodule1.service.js', basePath + this.moduleName + '.service.js');
           this.template(this.type + '/umodule1.i18n.js', basePath + this.moduleName + '.i18n.js');
@@ -190,7 +190,7 @@ module.exports = yeoman.generators.Base.extend({
             this.template(this.type + '/index.html', this.moduleName + '/index.html');
             var basePath = this.moduleName + '/' + this.moduleName + '/';
           }
-          this.template(this.type + '/cardTpl.html', this.moduleName + '/cardTpl.html');
+          this.template(this.type + '/cardTpl.html', basePath + '/cardTpl.html');
           this.template(this.type + '/umodule1.vue', basePath + this.moduleName + '.vue');
           this.template(this.type + '/umodule1.service.js', basePath + this.moduleName + '.service.js');
           this.template(this.type + '/umodule1.i18n.js', basePath + this.moduleName + '.i18n.js');

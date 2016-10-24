@@ -1,4 +1,4 @@
-import <%=moduleName %> from './<%=moduleName %>.vue';
+import <%=moduleName %> from './<%=moduleName %>/<%=moduleName %>.vue';
 
 export default {
   '/': {

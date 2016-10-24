@@ -22,7 +22,7 @@ module.exports = yeoman.generators.Base.extend({
 
       var mainPagePrompts = [{
         name: 'mainPage',
-        message: "main page?",
+        message: "first page of app?",
         type: 'confirm',
         defaults: false
       }];
@@ -140,85 +140,97 @@ module.exports = yeoman.generators.Base.extend({
           );
           break;
         case 'simple':
+          var basePath = this.moduleName + '/';
           if (this.mainPage) {
             this.template(this.type + '/routes.js', this.moduleName + '/routes.js');
             this.template(this.type + '/config.json', this.moduleName + '/config.json');
             this.template(this.type + '/index.html', this.moduleName + '/index.html');
+            var basePath = this.moduleName + '/' + this.moduleName + '/';
           }
-          this.template(this.type + '/umodule1.vue', this.moduleName + '/' + this.moduleName + '.vue');
-          this.template(this.type + '/umodule1.service.js', this.moduleName + '/' + this.moduleName + '.service.js');
-          this.template(this.type + '/umodule1.i18n.js', this.moduleName + '/' + this.moduleName + '.i18n.js');
-          this.template(this.type + '/umodule1.vuex.js', this.moduleName + '/' + this.moduleName + '.vuex.js');
+          this.template(this.type + '/umodule1.vue', basePath + this.moduleName + '.vue');
+          this.template(this.type + '/umodule1.service.js', basePath + this.moduleName + '.service.js');
+          this.template(this.type + '/umodule1.i18n.js', basePath + this.moduleName + '.i18n.js');
+          this.template(this.type + '/umodule1.vuex.js', basePath + this.moduleName + '.vuex.js');
           break;
 
         case 'searchtable':
+          var basePath = this.moduleName + '/';
           if (this.mainPage) {
             this.template(this.type + '/routes.js', this.moduleName + '/routes.js');
             this.template(this.type + '/config.json', this.moduleName + '/config.json');
             this.template(this.type + '/index.html', this.moduleName + '/index.html');
+            var basePath = this.moduleName + '/' + this.moduleName + '/';
           }
-          this.template(this.type + '/umodule1.vue', this.moduleName + '/' + this.moduleName + '.vue');
-          this.template(this.type + '/umodule1.service.js', this.moduleName + '/' + this.moduleName + '.service.js');
-          this.template(this.type + '/umodule1.i18n.js', this.moduleName + '/' + this.moduleName + '.i18n.js');
-          this.template(this.type + '/umodule1.vuex.js', this.moduleName + '/' + this.moduleName + '.vuex.js');
+          this.template(this.type + '/umodule1.vue', basePath + this.moduleName + '.vue');
+          this.template(this.type + '/umodule1.service.js', basePath + this.moduleName + '.service.js');
+          this.template(this.type + '/umodule1.i18n.js', basePath + this.moduleName + '.i18n.js');
+          this.template(this.type + '/umodule1.vuex.js', basePath + this.moduleName + '.vuex.js');
           break;
 
         case 'searchgrid':
+          var basePath = this.moduleName + '/';
           if (this.mainPage) {
             this.template(this.type + '/routes.js', this.moduleName + '/routes.js');
             this.template(this.type + '/config.json', this.moduleName + '/config.json');
             this.template(this.type + '/index.html', this.moduleName + '/index.html');
+            var basePath = this.moduleName + '/' + this.moduleName + '/';
           }
           this.template(this.type + '/cardTpl.html', this.moduleName + '/cardTpl.html');
-          this.template(this.type + '/umodule1.vue', this.moduleName + '/' + this.moduleName + '.vue');
-          this.template(this.type + '/umodule1.service.js', this.moduleName + '/' + this.moduleName + '.service.js');
-          this.template(this.type + '/umodule1.i18n.js', this.moduleName + '/' + this.moduleName + '.i18n.js');
-          this.template(this.type + '/umodule1.vuex.js', this.moduleName + '/' + this.moduleName + '.vuex.js');
+          this.template(this.type + '/umodule1.vue', basePath + this.moduleName + '.vue');
+          this.template(this.type + '/umodule1.service.js', basePath + this.moduleName + '.service.js');
+          this.template(this.type + '/umodule1.i18n.js', basePath + this.moduleName + '.i18n.js');
+          this.template(this.type + '/umodule1.vuex.js', basePath + this.moduleName + '.vuex.js');
           break;
 
         case 'searchcard':
+          var basePath = this.moduleName + '/';
           if (this.mainPage) {
             this.template(this.type + '/routes.js', this.moduleName + '/routes.js');
             this.template(this.type + '/config.json', this.moduleName + '/config.json');
             this.template(this.type + '/index.html', this.moduleName + '/index.html');
+            var basePath = this.moduleName + '/' + this.moduleName + '/';
           }
           this.template(this.type + '/cardTpl.html', this.moduleName + '/cardTpl.html');
-          this.template(this.type + '/umodule1.vue', this.moduleName + '/' + this.moduleName + '.vue');
-          this.template(this.type + '/umodule1.service.js', this.moduleName + '/' + this.moduleName + '.service.js');
-          this.template(this.type + '/umodule1.i18n.js', this.moduleName + '/' + this.moduleName + '.i18n.js');
-          this.template(this.type + '/umodule1.vuex.js', this.moduleName + '/' + this.moduleName + '.vuex.js');
+          this.template(this.type + '/umodule1.vue', basePath + this.moduleName + '.vue');
+          this.template(this.type + '/umodule1.service.js', basePath + this.moduleName + '.service.js');
+          this.template(this.type + '/umodule1.i18n.js', basePath + this.moduleName + '.i18n.js');
+          this.template(this.type + '/umodule1.vuex.js', basePath + this.moduleName + '.vuex.js');
           break;
 
         case 'emapform':
+          var basePath = this.moduleName + '/';
           if (this.mainPage) {
             this.template(this.type + '/routes.js', this.moduleName + '/routes.js');
             this.template(this.type + '/config.json', this.moduleName + '/config.json');
             this.template(this.type + '/index.html', this.moduleName + '/index.html');
+            var basePath = this.moduleName + '/' + this.moduleName + '/';
           }
-          this.template(this.type + '/umodule1.vue', this.moduleName + '/' + this.moduleName + '.vue');
-          this.template(this.type + '/umodule1.service.js', this.moduleName + '/' + this.moduleName + '.service.js');
-          this.template(this.type + '/umodule1.i18n.js', this.moduleName + '/' + this.moduleName + '.i18n.js');
-          this.template(this.type + '/umodule1.vuex.js', this.moduleName + '/' + this.moduleName + '.vuex.js');
+          this.template(this.type + '/umodule1.vue', basePath + this.moduleName + '.vue');
+          this.template(this.type + '/umodule1.service.js', basePath + this.moduleName + '.service.js');
+          this.template(this.type + '/umodule1.i18n.js', basePath + this.moduleName + '.i18n.js');
+          this.template(this.type + '/umodule1.vuex.js', basePath + this.moduleName + '.vuex.js');
           break;
 
         case 'tab':
+          var basePath = this.moduleName + '/';
           if (this.mainPage) {
             this.template(this.type + '/routes.js', this.moduleName + '/routes.js');
             this.template(this.type + '/config.json', this.moduleName + '/config.json');
             this.template(this.type + '/index.html', this.moduleName + '/index.html');
+            var basePath = this.moduleName + '/' + this.moduleName + '/';
           }
-          this.template(this.type + '/umodule1.vue', this.moduleName + '/' + this.moduleName + '.vue');
-          this.template(this.type + '/umodule1.service.js', this.moduleName + '/' + this.moduleName + '.service.js');
-          this.template(this.type + '/umodule1.i18n.js', this.moduleName + '/' + this.moduleName + '.i18n.js');
-          this.template(this.type + '/umodule1.vuex.js', this.moduleName + '/' + this.moduleName + '.vuex.js');
+          this.template(this.type + '/umodule1.vue', basePath + this.moduleName + '.vue');
+          this.template(this.type + '/umodule1.service.js', basePath + this.moduleName + '.service.js');
+          this.template(this.type + '/umodule1.i18n.js', basePath + this.moduleName + '.i18n.js');
+          this.template(this.type + '/umodule1.vuex.js', basePath + this.moduleName + '.vuex.js');
           break;
 
         case 'wizard':
           this.template(this.type + '/mock.js', this.moduleName + '/mock.js');
-          this.template(this.type + '/umodule1.css', this.moduleName + '/' + this.moduleName + '.css');
-          this.template(this.type + '/umodule1.js', this.moduleName + '/' + this.moduleName + '.js');
-          this.template(this.type + '/umodule1BS.js', this.moduleName + '/' + this.moduleName + 'BS.js');
-          this.template(this.type + '/umodule1IndexPage.html', this.moduleName + '/' + this.moduleName + 'IndexPage.html');
+          this.template(this.type + '/umodule1.css', basePath + this.moduleName + '.css');
+          this.template(this.type + '/umodule1.js', basePath + this.moduleName + '.js');
+          this.template(this.type + '/umodule1BS.js', basePath + this.moduleName + 'BS.js');
+          this.template(this.type + '/umodule1IndexPage.html', basePath + this.moduleName + 'IndexPage.html');
           break;
 
       }

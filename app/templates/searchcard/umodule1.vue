@@ -7,7 +7,7 @@
         <bh-button type="primary" @click="add" :small="false">{{$t('<%=moduleName %>.buttonList.add')}}</bh-button>
         <bh-button type="primary" @click="del" :small="false">{{$t('<%=moduleName %>.buttonList.del')}}</bh-button>
       </div>
-      <emap-card :options='pageopt.emapCard' v-ref:table></emap-card>
+      <emap-card :options='pageState.emapCard' v-ref:table></emap-card>
     </section>
   </article>
 </template>
@@ -22,7 +22,7 @@ export default {
 
   vuex: {
     getters: {
-      pageopt: function(state) {
+      pageState: function(state) {
         return state.<%=moduleName %>
       }
     }

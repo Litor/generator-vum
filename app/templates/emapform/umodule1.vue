@@ -2,7 +2,7 @@
   <article bh-layout-role="single">
     <h2>{{$t('<%=moduleName %>.title')}}</h2>
     <section>
-      <emap-form v-ref:form offset-top=0 :options="pageopt.options" :outline="pageopt.outline"></emap-form>
+      <emap-form v-ref:form offset-top=0 :options="pageState.options" :outline="pageState.outline"></emap-form>
     </section>
     <footer>
       <a class="bh-btn bh-btn-primary waves-effect" @click="save()">保存</a>
@@ -19,7 +19,7 @@ export default {
 
   vuex: {
     getters: {
-      pageopt: function(state) {
+      pageState: function(state) {
         return state.<%=moduleName %>
       }
     }

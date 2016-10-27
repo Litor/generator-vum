@@ -7,7 +7,7 @@
         <bh-button type="primary" @click="add" :small="false">{{$t('<%=moduleName %>.buttonList.add')}}</bh-button>
         <bh-button type="primary" @click="del" :small="false">{{$t('<%=moduleName %>.buttonList.del')}}</bh-button>
       </div>
-      <emap-datatable :options='pageopt.emapDatatable' v-ref:table></emap-datatable>
+      <emap-datatable :options='pageState.emapDatatable' v-ref:table></emap-datatable>
     </section>
   </article>
 </template>
@@ -22,7 +22,7 @@ export default {
 
   vuex: {
     getters: {
-      pageopt: function(state) {
+      pageState: function(state) {
         return state.<%=moduleName %>
       },
     }
@@ -30,7 +30,7 @@ export default {
 
   methods:{
     add() {
-      this.pageopt.paperDialog.title = Vue.t('<%=moduleName %>.paperDialog.add_title')
+      this.pageState.paperDialog.title = Vue.t('<%=moduleName %>.paperDialog.add_title')
       Vue.paperDialog({
         currentView: '<%=moduleName %>',
         title: Vue.t('<%=moduleName %>.paperDialog.add_title')
@@ -39,7 +39,7 @@ export default {
 
     del() {
       var checked = this.$refs.grid.getGrid().checkedRecords()
-      this.pageopt.selectedRows = checked
+      this.pageState.selectedRows = checked
       if (checked.length === 0) {
         Vue.tip({
           state: 'warning',
@@ -62,7 +62,7 @@ export default {
     },
 
     '<%=moduleName %>:table:detail': function(row) {
-      this.pageopt.propertyDialog.title = row['name']
+      this.pageState.propertyDialog.title = row['name']
       Vue.propertyDialog({
         currentView: '<%=moduleName %>',
         okEvent: '_SUBPAGE_SAVE_EVENT_',
@@ -80,7 +80,7 @@ export default {
     },
 
     '<%=moduleName %>:table:del': function(row) {
-      this.pageopt.selectedRows = [row]
+      this.pageState.selectedRows = [row]
       Vue.toast({
         type: 'warning',
         title: Vue.t('<%=moduleName %>.toast.del'),
@@ -89,7 +89,7 @@ export default {
     },
 
     '<%=moduleName %>:toast:del': function() {
-      var checked = this.pageopt.selectedRows
+      var checked = this.pageState.selectedRows
       var wids = []
 
       checked.forEach((item) => {

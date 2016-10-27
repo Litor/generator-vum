@@ -14,7 +14,7 @@ export default {
 
   vuex: {
     getters: {
-      pageopt: function(state) {
+      pageState: function(state) {
         return state.<%=moduleName %>
       },
     }

@@ -38,7 +38,7 @@ export default {
     },
 
     del() {
-      var checked = this.$refs.grid.getGrid().checkedRecords()
+      var checked = this.$refs.table.checkedRecords()
       this.pageState.selectedRows = checked
       if (checked.length === 0) {
         Vue.tip({

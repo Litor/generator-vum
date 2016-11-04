@@ -51,6 +51,7 @@
     "vue-html-loader": "^1.2.3",
     "vue-loader": "^8.5.3",
     "vue-style-loader": "^1.0.0",
-    "webpack-stream": "2.1.0"
+    "webpack-stream": "2.1.0",
+    "wec-vue": "^0.1.7"
   }
 }

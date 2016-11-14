@@ -47,10 +47,6 @@
     "ubase-vue": "^1.0.14",
     "url-loader": "^0.5.7",
     "vinyl-named": "^1.1.0",
-    "vue-hot-reload-api": "1.2.0",
-    "vue-html-loader": "^1.2.3",
-    "vue-loader": "^8.5.3",
-    "vue-style-loader": "^1.0.0",
     "webpack-stream": "2.1.0",
     "wec-vue": "^0.1.7"
   }

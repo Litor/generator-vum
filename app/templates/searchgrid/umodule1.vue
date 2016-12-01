@@ -2,7 +2,7 @@
   <article bh-layout-role="single">
     <h2>{{$t('<%=moduleName %>.title')}}</h2>
     <section>
-      <simple-search v-ref:simplesearch :placeholder="$t('<%=moduleName %>.simpleSearch.placeholder')" :search-event="'<%=moduleName %>:search:top'"></simple-search>
+      <bh-search @search='search' :value.sync='ps.keyword' :placeholder='$t("<%=moduleName %>.placeholder")' style="width:500px"></bh-search>
       <div class="bh-mv-16">
         <bh-button type="primary" @click="add" :small="false">{{$t('<%=moduleName %>.buttonList.add')}}</bh-button>
         <bh-button type="primary" @click="del" :small="false">{{$t('<%=moduleName %>.buttonList.del')}}</bh-button>
@@ -13,19 +13,15 @@
 </template>
 <script type="text/ecmascript-6">
 import service from './<%=moduleName %>.service'
-import EmapGrid from 'bh-vue/emap-grid/emapGrid.vue'
-import simpleSearch from 'bh-vue/simple-search/simpleSearch.vue'
-import bhButton from 'bh-vue/bh-button/bhButton.vue'
+import {EmapGrid, bhSearch, bhButton} from 'bh-vue'
 
 export default {
-  components: { EmapGrid, simpleSearch, bhButton },
+  components: { EmapGrid, bhSearch, bhButton },
 
-  vuex: {
-    getters: {
-      pageState: function(state) {
-        return state.<%=moduleName %>
-      },
-    }
+  computed: {
+    ps(){
+      return this.$store.state.<%=moduleName %>
+    },
   },
 
   methods:{

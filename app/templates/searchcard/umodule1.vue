@@ -2,29 +2,25 @@
   <article bh-layout-role="single">
     <h2>{{$t('<%=moduleName %>.title')}}</h2>
     <section>
-      <simple-search v-ref:simplesearch :placeholder="$t('<%=moduleName %>.simpleSearch.placeholder')" :search-event="'<%=moduleName %>:search:top'"></simple-search>
+      <bh-search @search='search' :value.sync='ps.keyword' :placeholder='$t("<%=moduleName %>.placeholder")' style="width:500px"></bh-search>
       <div class="bh-mv-16">
         <bh-button type="primary" @click="add" :small="false">{{$t('<%=moduleName %>.buttonList.add')}}</bh-button>
         <bh-button type="primary" @click="del" :small="false">{{$t('<%=moduleName %>.buttonList.del')}}</bh-button>
       </div>
-      <emap-card :options='pageState.emapCard' v-ref:table></emap-card>
+      <emap-card :options='ps.emapCard' v-ref:table></emap-card>
     </section>
   </article>
 </template>
 <script type="text/ecmascript-6">
 import service from './<%=moduleName %>.service'
-import EmapCard from 'bh-vue/emap-card/emapCard.vue'
-import simpleSearch from 'bh-vue/simple-search/simpleSearch.vue'
-import bhButton from 'bh-vue/bh-button/bhButton.vue'
+import {EmapCard, bhSearch, bhButton} from 'bh-vue'
 
 export default {
-  components: { EmapCard, simpleSearch, bhButton },
+  components: { EmapCard, bhSearch, bhButton },
 
-  vuex: {
-    getters: {
-      pageState: function(state) {
-        return state.<%=moduleName %>
-      }
+  computed: {
+    ps(){
+      return this.$store.state.<%=moduleName %>
     }
   },
 
@@ -39,17 +35,10 @@ export default {
 
     del() {
 
-    }
-  },
-
-  events: {
-    '<%=moduleName %>:search:top': function() {
-      var keyword = this.$refs.simplesearch.keyword
-      this.$refs.table.reload({ searchContent: keyword })
     },
 
-    '<%=moduleName %>:card:edit':function(row){
-      console.log(row)
+    search(){
+      this.$refs.table.reload({ searchContent: this.ps.keyword })
     }
   }
 }

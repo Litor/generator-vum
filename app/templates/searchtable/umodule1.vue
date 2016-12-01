@@ -20,12 +20,10 @@ import bhButton from 'bh-vue/bh-button/bhButton.vue'
 export default {
   components: { EmapDatatable, simpleSearch, bhButton },
 
-  vuex: {
-    getters: {
-      pageState: function(state) {
-        return state.<%=moduleName %>
-      },
-    }
+  computed: {
+    ps(){
+      return this.$store.state.<%=moduleName %>
+    },
   },
 
   methods:{

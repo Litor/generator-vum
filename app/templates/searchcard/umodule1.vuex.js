@@ -1,6 +1,7 @@
 import service from './<%=moduleName %>.service';
 
 export const state = {
+  keyword: '',
   emapCard: {
     pagePath: service.api.getList_meta,
     url: service.api.getList,

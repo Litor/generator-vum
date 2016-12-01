@@ -1,6 +1,7 @@
 import service from './<%=moduleName %>.service';
 
 export const state = {
+  keyword: '',
   selectedRows: [],
   emapGrid: {
     pagePath: service.api.getList_meta,

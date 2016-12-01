@@ -12,12 +12,10 @@ import service from './<%=moduleName %>.service'
 export default {
   components: {},
 
-  vuex: {
-    getters: {
-      pageState: function(state) {
-        return state.<%=moduleName %>
-      },
-    }
+  computed: {
+    ps(){
+      return this.$store.state.<%=moduleName %>
+    },
   },
 
   events: {

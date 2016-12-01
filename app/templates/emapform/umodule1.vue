@@ -17,12 +17,10 @@ import EmapForm from 'bh-vue/emap-form/emapForm.vue'
 export default {
   components: { EmapForm },
 
-  vuex: {
-    getters: {
-      pageState: function(state) {
-        return state.<%=moduleName %>
-      }
-    }
+  computed: {
+    ps(){
+      return this.$store.state.<%=moduleName %>
+    },
   },
 
   events: {

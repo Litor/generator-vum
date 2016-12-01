@@ -1,10 +1,11 @@
 import path from 'path';
-import ubaseGulp from 'ubase-vue/dist/apptools/webpack/gulp';
+import ubase from 'ubase-vue';
 
-let userConfig = {
+ubase({
   // 配置别名
   alias: {
-    'components': path.resolve(__dirname, './src/components')
+    'components': path.resolve(__dirname, './src/components'),
+    'statics': path.resolve(__dirname, './src/statics')
   },
 
   // 端口
@@ -15,6 +16,4 @@ let userConfig = {
 
   // mock server代理
   proxy: [{ source: '/jcsj-apps-web', target: 'http://res.wisedu.com:8000' }]
-};
-
-ubaseGulp(path, userConfig);
+});

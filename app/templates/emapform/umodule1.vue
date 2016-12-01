@@ -11,7 +11,7 @@
   </article>
 </template>
 <script type="text/ecmascript-6">
-import service from './service'
+import service from '../service'
 import {EmapForm} from 'bh-vue'
 
 export default {

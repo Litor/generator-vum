@@ -12,7 +12,7 @@
   </article>
 </template>
 <script type="text/ecmascript-6">
-import service from './service'
+import service from '../service'
 import {EmapCard, bhSearch, bhButton} from 'bh-vue'
 
 export default {

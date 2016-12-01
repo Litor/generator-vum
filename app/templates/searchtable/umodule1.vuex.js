@@ -1,4 +1,4 @@
-import service from './<%=moduleName %>.service';
+import service from './service';
 
 export const state = {
   selectedRows: [],
@@ -6,6 +6,7 @@ export const state = {
     pagePath: service.api.getList_meta,
     url: service.api.getList,
     action: service.api.getList_action,
+    params:{searchContent: ''},
     method: 'POST',
     customColumns: [{
       colField: 'status',
@@ -25,15 +26,11 @@ export const state = {
       width: 150,
       items: [{
         title: Vue.t('<%=moduleName %>.table.opt_edit'),
-        name: '<%=moduleName %>:table:edit',
-        type: 'link'
-      }, {
-        title: Vue.t('<%=moduleName %>.table.opt_detail'),
-        name: '<%=moduleName %>:table:detail',
+        name: 'edit',
         type: 'link'
       }, {
         title: Vue.t('<%=moduleName %>.table.opt_delete'),
-        name: '<%=moduleName %>:table:del',
+        name: 'del',
         type: 'link'
       }]
     }

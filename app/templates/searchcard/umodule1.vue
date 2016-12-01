@@ -12,7 +12,7 @@
   </article>
 </template>
 <script type="text/ecmascript-6">
-import service from './<%=moduleName %>.service'
+import service from './service'
 import {EmapCard, bhSearch, bhButton} from 'bh-vue'
 
 export default {
@@ -25,10 +25,13 @@ export default {
   },
 
   methods:{
+    search(){
+      this.$refs.table.reload({ searchContent: this.ps.keyword })
+    },
+
     add() {
-      Vue.dialog({
+      Utils.dialog({
         currentView: '<%=moduleName %>',
-        okEvent: '_SUBPAGE_SAVE_EVENT_',
         title: Vue.t('<%=moduleName %>.dialog.title')
       })
     },
@@ -37,8 +40,12 @@ export default {
 
     },
 
-    search(){
-      this.$refs.table.reload({ searchContent: this.ps.keyword })
+    cardEdit(){
+
+    },
+
+    cardDel(){
+
     }
   }
 }

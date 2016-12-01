@@ -2,7 +2,7 @@
   <article bh-layout-role="single">
     <h2>{{$t('<%=moduleName %>.title')}}</h2>
     <section>
-      <emap-form v-ref:form offset-top=0 :options="pageState.options" :outline="pageState.outline"></emap-form>
+      <emap-form v-ref:form offset-top=0 :options="ps.options" :outline="ps.outline"></emap-form>
     </section>
     <footer>
       <a class="bh-btn bh-btn-primary waves-effect" @click="save()">保存</a>
@@ -11,8 +11,8 @@
   </article>
 </template>
 <script type="text/ecmascript-6">
-import service from './<%=moduleName %>.service'
-import EmapForm from 'bh-vue/emap-form/emapForm.vue'
+import service from './service'
+import {EmapForm} from 'bh-vue'
 
 export default {
   components: { EmapForm },
@@ -23,23 +23,24 @@ export default {
     },
   },
 
-  events: {
-    '<%=moduleName %>:setvalue': function(val) {
+  methods:{
+    setValue(val){
       this.$refs.form.setValue(val)
     },
-    '<%=moduleName %>:save': function() {
+
+    save(){
       var ret = this.$refs.form.validate()
-      
+
       if (!ret) {
         return
       }
       var info = this.$refs.form.getValue()
       service.addOrEdit(info).then(({ data }) => {
-        Vue.tip({
+        Utils.tip({
           state: 'success',
-          content: Vue.t('<%=moduleName %>.tip.save_success')
+          content: Vue.t('<%=moduleName %>.saveSuccess')
         })
-        Vue.propertyDialog('hide')
+        Utils.propertyDialog('hide')
       })
     }
   }

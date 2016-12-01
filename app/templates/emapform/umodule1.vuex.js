@@ -1,9 +1,9 @@
-import service from './<%=moduleName %>.service';
+import service from './service';
 
 export const state = {
   options: {
-    pagePath: service.api.addOrEdit_meta,
-    modelName: service.api.addOrEdit_action,
+    pagePath: service.api.demopagepath,
+    modelName: service.api.demomodelname,
     outline: false,
     readonly: false,
     model: 'v'

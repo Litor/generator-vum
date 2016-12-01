@@ -130,10 +130,6 @@ module.exports = yeoman.generators.Base.extend({
             this.templatePath(this.type + '/README.md'),
             this.destinationPath('README.md')
           );
-          /*this.copy(
-            this.templatePath(this.type + '/node_modules.zip'),
-            this.destinationPath('node_modules.zip')
-          );*/
           this.copy(
             this.templatePath(this.type + '/update.bat'),
             this.destinationPath('update.bat')
@@ -145,10 +141,11 @@ module.exports = yeoman.generators.Base.extend({
             this.template(this.type + '/routes.js', this.moduleName + '/routes.js');
             this.template(this.type + '/config.json', this.moduleName + '/config.json');
             this.template(this.type + '/index.html', this.moduleName + '/index.html');
+            this.template(this.type + '/umodule1.service.js', this.moduleName + '/service.js');
             var basePath = this.moduleName + '/' + this.moduleName + '/';
           }
           this.template(this.type + '/umodule1.vue', basePath + this.moduleName + '.vue');
-          this.template(this.type + '/umodule1.service.js', basePath + this.moduleName + '.service.js');
+
           this.template(this.type + '/umodule1.i18n.js', basePath + this.moduleName + '.i18n.js');
           this.template(this.type + '/umodule1.vuex.js', basePath + this.moduleName + '.vuex.js');
           break;
@@ -159,10 +156,10 @@ module.exports = yeoman.generators.Base.extend({
             this.template(this.type + '/routes.js', this.moduleName + '/routes.js');
             this.template(this.type + '/config.json', this.moduleName + '/config.json');
             this.template(this.type + '/index.html', this.moduleName + '/index.html');
+            this.template(this.type + '/umodule1.service.js', this.moduleName + '/service.js');
             var basePath = this.moduleName + '/' + this.moduleName + '/';
           }
           this.template(this.type + '/umodule1.vue', basePath + this.moduleName + '.vue');
-          this.template(this.type + '/umodule1.service.js', basePath + this.moduleName + '.service.js');
           this.template(this.type + '/umodule1.i18n.js', basePath + this.moduleName + '.i18n.js');
           this.template(this.type + '/umodule1.vuex.js', basePath + this.moduleName + '.vuex.js');
           break;
@@ -173,6 +170,7 @@ module.exports = yeoman.generators.Base.extend({
             this.template(this.type + '/routes.js', this.moduleName + '/routes.js');
             this.template(this.type + '/config.json', this.moduleName + '/config.json');
             this.template(this.type + '/index.html', this.moduleName + '/index.html');
+            this.template(this.type + '/umodule1.service.js', this.moduleName + '/service.js');
             var basePath = this.moduleName + '/' + this.moduleName + '/';
           }
           this.template(this.type + '/cardTpl.html', basePath + '/cardTpl.html');
@@ -188,11 +186,11 @@ module.exports = yeoman.generators.Base.extend({
             this.template(this.type + '/routes.js', this.moduleName + '/routes.js');
             this.template(this.type + '/config.json', this.moduleName + '/config.json');
             this.template(this.type + '/index.html', this.moduleName + '/index.html');
+            this.template(this.type + '/umodule1.service.js', this.moduleName + '/service.js');
             var basePath = this.moduleName + '/' + this.moduleName + '/';
           }
           this.template(this.type + '/cardTpl.html', basePath + '/cardTpl.html');
           this.template(this.type + '/umodule1.vue', basePath + this.moduleName + '.vue');
-          this.template(this.type + '/umodule1.service.js', basePath + this.moduleName + '.service.js');
           this.template(this.type + '/umodule1.i18n.js', basePath + this.moduleName + '.i18n.js');
           this.template(this.type + '/umodule1.vuex.js', basePath + this.moduleName + '.vuex.js');
           break;
@@ -203,10 +201,10 @@ module.exports = yeoman.generators.Base.extend({
             this.template(this.type + '/routes.js', this.moduleName + '/routes.js');
             this.template(this.type + '/config.json', this.moduleName + '/config.json');
             this.template(this.type + '/index.html', this.moduleName + '/index.html');
+            this.template(this.type + '/umodule1.service.js', this.moduleName + '/service.js');
             var basePath = this.moduleName + '/' + this.moduleName + '/';
           }
           this.template(this.type + '/umodule1.vue', basePath + this.moduleName + '.vue');
-          this.template(this.type + '/umodule1.service.js', basePath + this.moduleName + '.service.js');
           this.template(this.type + '/umodule1.i18n.js', basePath + this.moduleName + '.i18n.js');
           this.template(this.type + '/umodule1.vuex.js', basePath + this.moduleName + '.vuex.js');
           break;
@@ -217,10 +215,10 @@ module.exports = yeoman.generators.Base.extend({
             this.template(this.type + '/routes.js', this.moduleName + '/routes.js');
             this.template(this.type + '/config.json', this.moduleName + '/config.json');
             this.template(this.type + '/index.html', this.moduleName + '/index.html');
+            this.template(this.type + '/umodule1.service.js', this.moduleName + '/service.js');
             var basePath = this.moduleName + '/' + this.moduleName + '/';
           }
           this.template(this.type + '/umodule1.vue', basePath + this.moduleName + '.vue');
-          this.template(this.type + '/umodule1.service.js', basePath + this.moduleName + '.service.js');
           this.template(this.type + '/umodule1.i18n.js', basePath + this.moduleName + '.i18n.js');
           this.template(this.type + '/umodule1.vuex.js', basePath + this.moduleName + '.vuex.js');
           break;

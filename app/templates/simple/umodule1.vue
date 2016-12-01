@@ -7,7 +7,7 @@
   </article>
 </template>
 <script type="text/ecmascript-6">
-import service from './<%=moduleName %>.service'
+import service from './service'
 
 export default {
   components: {},

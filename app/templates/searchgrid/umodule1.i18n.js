@@ -8,8 +8,7 @@ var cn = {
   grid: {
     opt_title: '操作',
     opt_edit: '编辑',
-    opt_detail: '详情',
-    opt_delete: '删除'
+    opt_del: '删除'
   },
   card: {
     admin: '负责人',
@@ -17,7 +16,9 @@ var cn = {
     edit: '编辑',
     detail: '查看详情',
     del: '删除'
-  }
+  },
+  onSelect: '未选择',
+  delSuccess: '删除成功'
 
 };
 

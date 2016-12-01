@@ -1,4 +1,4 @@
-import service from './<%=moduleName %>.service';
+import service from './service';
 
 export const state = {
   keyword: '',

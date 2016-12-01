@@ -1,13 +1,13 @@
-import service from './<%=moduleName %>.service';
+import service from './service';
 
 export const state = {
-  keyword: '',
   selectedRows: [],
   emapGrid: {
     pagePath: service.api.getList_meta,
     url: service.api.getList,
     action: service.api.getList_action,
     template: require('./cardTpl.html'),
+    params:{searchContent: ''},
     method: 'POST',
     customColumns: [{
       colField: 'status',
@@ -27,15 +27,11 @@ export const state = {
       width: 150,
       items: [{
         title: Vue.t('<%=moduleName %>.grid.opt_edit'),
-        name: '<%=moduleName %>:grid:edit',
+        name: 'edit',
         type: 'link'
-      }, {
-        title: Vue.t('<%=moduleName %>.grid.opt_detail'),
-        name: '<%=moduleName %>:grid:detail',
-        type: 'link'
-      }, {
-        title: Vue.t('<%=moduleName %>.grid.opt_delete'),
-        name: '<%=moduleName %>:grid:del',
+      },{
+        title: Vue.t('<%=moduleName %>.grid.opt_del'),
+        name: 'del',
         type: 'link'
       }]
     }

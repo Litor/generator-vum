@@ -26,7 +26,6 @@ export default {
 
   methods:{
     add() {
-      this.ps.paperDialog.title = Vue.t('<%=moduleName %>.paperDialog.add_title')
       Utils.paperDialog({
         currentView: '<%=moduleName %>',
         title: Vue.t('<%=moduleName %>.paperDialog.add_title')
@@ -47,7 +46,7 @@ export default {
       Utils.toast({
         type: 'warning',
         title: Vue.t('<%=moduleName %>.toast.del'),
-        okEvent: '<%=moduleName %>:toast:del'
+        okEvent: '<%=moduleName %>.doDelete'
       })
     },
 

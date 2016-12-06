@@ -21,6 +21,7 @@ export const state = {
     checkable: true,
     sortable: true,
     columnsReorder: true,
+    schema: false,
     operations: {
       title: Vue.t('<%=moduleName %>.table.opt_title'),
       width: 150,

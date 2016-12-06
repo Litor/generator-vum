@@ -22,6 +22,7 @@ export const state = {
     checkable: true,
     sortable: true,
     columnsReorder: true,
+    schema: false,
     operations: {
       title: Vue.t('<%=moduleName %>.grid.opt_title'),
       width: 150,

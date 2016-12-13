@@ -32,7 +32,7 @@ export default {
     add() {
       Utils.paperDialog({
         currentView: '<%=moduleName %>',
-        title: Vue.t('<%=moduleName %>.paperDialog.add_title')
+        title: Vue.t('<%=moduleName %>.paperDialog.addTitle')
       })
     },
 
@@ -42,14 +42,14 @@ export default {
       if (this.ps.selectedRows.length === 0) {
         Utils.tip({
           state: 'warning',
-          content: Vue.t('<%=moduleName %>.tip.noselect')
+          content: Vue.t('<%=moduleName %>.noSelect')
         })
         return
       }
 
       Utils.toast({
         type: 'warning',
-        title: Vue.t('<%=moduleName %>.toast.del'),
+        title: Vue.t('<%=moduleName %>.delConfirm'),
         okEvent: '<%=moduleName %>.doDelete'
       })
     },
@@ -57,7 +57,7 @@ export default {
     tableEdit(){
       Utils.paperDialog({
         currentView: '<%=moduleName %>',
-        title: Vue.t('<%=moduleName %>.paperDialog.edit_title')
+        title: Vue.t('<%=moduleName %>.paperDialog.editTitle')
       })
       Ubase.invoke('addedit.setValue', row)
     },
@@ -66,7 +66,7 @@ export default {
       this.ps.selectedRows = [row]
       Utils.toast({
         type: 'warning',
-        title: Vue.t('<%=moduleName %>.toast.del'),
+        title: Vue.t('<%=moduleName %>.delConfirm'),
         okEvent: '<%=moduleName %>.doDelete'
       })
     },

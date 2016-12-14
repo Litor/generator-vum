@@ -55,11 +55,12 @@ export default {
     },
 
     gridEdit(){
+      this.ps.currentEditRow = row
+
       Utils.paperDialog({
         currentView: '<%=moduleName %>',
         title: Vue.t('<%=moduleName %>.paperDialog.editTitle')
       })
-      Ubase.invoke('addedit.setValue', row)
     },
 
     gridDel(){

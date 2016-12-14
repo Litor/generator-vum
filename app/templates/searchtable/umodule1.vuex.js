@@ -1,19 +1,20 @@
 import service from '../service';
 
 export const state = {
+  currentEditRow: {},
   selectedRows: [],
   emapDatatable: {
     pagePath: service.api.getList_meta,
     url: service.api.getList,
     action: service.api.getList_action,
-    params:{searchContent: ''},
+    params: {searchContent: ''},
     method: 'POST',
     customColumns: [{
       colField: 'status',
       type: 'tpl',
       width: 50,
       column: {
-        cellsRenderer: function(row, column, value, rowData) {
+        cellsRenderer: function (row, column, value, rowData) {
           return value ? '有效' : '无效';
         }
       }

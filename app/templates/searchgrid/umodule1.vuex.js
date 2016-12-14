@@ -1,6 +1,7 @@
 import service from '../service';
 
 export const state = {
+  currentEditRow: {},
   selectedRows: [],
   emapGrid: {
     pagePath: service.api.getList_meta,

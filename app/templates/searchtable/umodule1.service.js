@@ -7,8 +7,8 @@ export default {
   },
 
   demo(params) {
-    return Vue.http.post(this.api.demo, params).then(function(datas) {
-      return datas.data;
+    return Utils.post(this.api.demo, params).then(function(res) {
+      return res.datas;
     });
   }
 };

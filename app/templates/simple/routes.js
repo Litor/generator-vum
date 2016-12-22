@@ -1,7 +1,7 @@
-import <%=moduleName %> from './<%=moduleName %>/<%=moduleName %>.vue';
+import index from './index/index.vue';
 
 export default {
   '/': {
-    component: <%=moduleName %>
+    component: index
   }
 }

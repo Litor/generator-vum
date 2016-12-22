@@ -11,38 +11,38 @@
   </article>
 </template>
 <script type="text/ecmascript-6">
-import service from '../service'
-import {EmapForm} from 'bh-vue'
+  import service from '../service'
+  import emapForm from 'bh-vue/emap-form/emapForm.vue'
 
-export default {
-  components: { EmapForm },
+  export default {
+    components: { emapForm },
 
-  computed: {
-    ps(){
-      return this.$store.state.<%=moduleName %>
-    },
-  },
-
-  methods:{
-    setValue(val){
-      this.$refs.form.setValue(val)
+    computed: {
+      ps(){
+        return this.$store.state.<%=moduleName %>
+      },
     },
 
-    save(){
-      var ret = this.$refs.form.validate()
+    methods:{
+      setValue(val){
+        this.$refs.form.setValue(val)
+      },
 
-      if (!ret) {
-        return
-      }
-      var info = this.$refs.form.getValue()
-      service.addOrEdit(info).then(({ data }) => {
-        Utils.tip({
-          state: 'success',
-          content: Vue.t('<%=moduleName %>.saveSuccess')
+      save(){
+        var ret = this.$refs.form.validate()
+
+        if (!ret) {
+          return
+        }
+        var info = this.$refs.form.getValue()
+        service.addOrEdit(info).then(({ data }) => {
+          Utils.tip({
+            state: 'success',
+            content: Vue.t('<%=moduleName %>.saveSuccess')
+          })
+          Utils.propertyDialog('hide')
         })
-        Utils.propertyDialog('hide')
-      })
+      }
     }
   }
-}
 </script>

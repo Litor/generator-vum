@@ -7,19 +7,19 @@
   </article>
 </template>
 <script type="text/ecmascript-6">
-import service from '../service'
+  import service from '../service'
 
-export default {
-  components: {},
+  export default {
+    components: {},
 
-  computed: {
-    ps(){
-      return this.$store.state.<%=moduleName %>
+    computed: {
+      ps(){
+        return this.$store.state.<%=moduleName %>
+      },
     },
-  },
 
-  methods: {
-    
+    methods: {
+
+    }
   }
-}
 </script>

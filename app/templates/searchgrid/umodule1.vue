@@ -12,84 +12,86 @@
   </article>
 </template>
 <script type="text/ecmascript-6">
-import service from '../service'
-import {EmapGrid, bhSearch, bhButton} from 'bh-vue'
+  import service from '../service'
+  import emapGrid from 'bh-vue/emap-grid/emapGrid.vue'
+  import bhSearch from 'bh-vue/bh-search/bhSearch.vue'
+  import bhButton from 'bh-vue/bh-button/bhButton.vue'
 
-export default {
-  components: { EmapGrid, bhSearch, bhButton },
+  export default {
+    components: { emapGrid, bhSearch, bhButton },
 
-  computed: {
-    ps(){
-      return this.$store.state.<%=moduleName %>
-    },
-  },
-
-  methods:{
-    add() {
-      Utils.paperDialog({
-        currentView: '<%=moduleName %>',
-        title: Vue.t('<%=moduleName %>.paperDialog.addTitle')
-      })
+    computed: {
+      ps(){
+        return this.$store.state.<%=moduleName %>
+      },
     },
 
-    del() {
-      this.ps.selectedRows = this.$refs.grid.getGrid().checkedRecords()
-
-      if (this.ps.selectedRows.length === 0) {
-        Utils.tip({
-          state: 'warning',
-          content: Vue.t('<%=moduleName %>.onSelect')
+    methods:{
+      add() {
+        Utils.paperDialog({
+          currentView: '<%=moduleName %>',
+          title: Vue.t('<%=moduleName %>.paperDialog.addTitle')
         })
-        return
-      }
+      },
 
-      Utils.toast({
-        type: 'warning',
-        title: Vue.t('<%=moduleName %>.delConfirm'),
-        okEvent: '<%=moduleName %>.doDelete'
-      })
-    },
+      del() {
+        this.ps.selectedRows = this.$refs.grid.getGrid().checkedRecords()
 
-    search(){
-      this.$refs.grid.reload()
-    },
+        if (this.ps.selectedRows.length === 0) {
+          Utils.tip({
+            state: 'warning',
+            content: Vue.t('<%=moduleName %>.onSelect')
+          })
+          return
+        }
 
-    gridEdit(){
-      this.ps.currentEditRow = row
-
-      Utils.paperDialog({
-        currentView: '<%=moduleName %>',
-        title: Vue.t('<%=moduleName %>.paperDialog.editTitle')
-      })
-    },
-
-    gridDel(){
-      this.ps.selectedRows = [row]
-      Utils.toast({
-        type: 'warning',
-        title: Vue.t('<%=moduleName %>.delConfirm'),
-        okEvent: '<%=moduleName %>.doDelete'
-      })
-    },
-
-    doDelete(){
-      var checked = this.ps.selectedRows
-      var wids = []
-
-      checked.forEach((item) => {
-        wids.push(item.wid)
-      })
-
-      service.delete(wids).then(({ data }) => {
-        Utils.tip({
-          state: 'success',
-          content: Vue.t('<%=moduleName %>.tip.delSuccess')
+        Utils.toast({
+          type: 'warning',
+          title: Vue.t('<%=moduleName %>.delConfirm'),
+          okEvent: '<%=moduleName %>.doDelete'
         })
+      },
+
+      search(){
         this.$refs.grid.reload()
-      })
+      },
+
+      gridEdit(row){
+        this.ps.currentEditRow = row
+
+        Utils.paperDialog({
+          currentView: '<%=moduleName %>',
+          title: Vue.t('<%=moduleName %>.paperDialog.editTitle')
+        })
+      },
+
+      gridDel(row){
+        this.ps.selectedRows = [row]
+        Utils.toast({
+          type: 'warning',
+          title: Vue.t('<%=moduleName %>.delConfirm'),
+          okEvent: '<%=moduleName %>.doDelete'
+        })
+      },
+
+      doDelete(){
+        var checked = this.ps.selectedRows
+        var wids = []
+
+        checked.forEach((item) => {
+          wids.push(item.wid)
+        })
+
+        service.delete(wids).then(({ data }) => {
+          Utils.tip({
+            state: 'success',
+            content: Vue.t('<%=moduleName %>.tip.delSuccess')
+          })
+          this.$refs.grid.reload()
+        })
+      }
     }
   }
-}
 </script>
 <style type="text/css">
 .<%=moduleName %>-card-value {

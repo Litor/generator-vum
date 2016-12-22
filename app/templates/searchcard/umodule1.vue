@@ -12,43 +12,45 @@
   </article>
 </template>
 <script type="text/ecmascript-6">
-import service from '../service'
-import {EmapCard, bhSearch, bhButton} from 'bh-vue'
+  import service from '../service'
+  import emapCard from 'bh-vue/emap-card/emapCard.vue'
+  import bhSearch from 'bh-vue/bh-search/bhSearch.vue'
+  import bhButton from 'bh-vue/bh-button/bhButton.vue'
 
-export default {
-  components: { EmapCard, bhSearch, bhButton },
+  export default {
+    components: { emapCard, bhSearch, bhButton },
 
-  computed: {
-    ps(){
-      return this.$store.state.<%=moduleName %>
-    }
-  },
-
-  methods:{
-    search(){
-      this.$refs.table.reload({ searchContent: this.ps.keyword })
+    computed: {
+      ps(){
+        return this.$store.state.<%=moduleName %>
+      }
     },
 
-    add() {
-      Utils.dialog({
-        currentView: '<%=moduleName %>',
-        title: Vue.t('<%=moduleName %>.dialog.title')
-      })
-    },
+    methods:{
+      search(){
+        this.$refs.table.reload({ searchContent: this.ps.keyword })
+      },
 
-    del() {
+      add() {
+        Utils.dialog({
+          currentView: '<%=moduleName %>',
+          title: Vue.t('<%=moduleName %>.dialog.title')
+        })
+      },
 
-    },
+      del() {
 
-    cardEdit(){
+      },
 
-    },
+      cardEdit(){
 
-    cardDel(){
+      },
 
+      cardDel(){
+
+      }
     }
   }
-}
 </script>
 <style type="text/css">
 .<%=moduleName %>-card-value {

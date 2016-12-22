@@ -2,6 +2,8 @@ import path from 'path';
 import ubase from 'ubase-vue';
 
 ubase({
+  // 输出路径
+  dest:'./www',
   // 配置别名
   alias: {
     'components': path.resolve(__dirname, './src/components'),

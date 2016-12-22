@@ -7,15 +7,15 @@
   </article>
 </template>
 <script  type="text/ecmascript-6">
-import {compTab} from 'bh-vue'
+  import compTab from 'bh-vue/comp-tab/compTab.vue'
 
-export default {
-  components: { compTab},
+  export default {
+    components: { compTab},
 
-  computed: {
-    ps(){
-      return this.$store.state.<%=moduleName %>
+    computed: {
+      ps(){
+        return this.$store.state.<%=moduleName %>
+      },
     },
-  },
-}
+  }
 </script>

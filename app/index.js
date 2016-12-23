@@ -145,11 +145,11 @@ module.exports = yeoman.generators.Base.extend({
 
             this.template(this.type + '/umodule1.vue', basePath + 'index/index.vue');
             this.template(this.type + '/umodule1.i18n.js', basePath + 'index/index.i18n.js');
-            this.template(this.type + '/umodule1.vuex.js', basePath + 'index/index.vuex.js');
+            this.template(this.type + '/umodule1.vuex.js', basePath + 'index/index.state.js');
           }else{
             this.template(this.type + '/umodule1.vue', basePath + this.moduleName + '.vue');
             this.template(this.type + '/umodule1.i18n.js', basePath + this.moduleName + '.i18n.js');
-            this.template(this.type + '/umodule1.vuex.js', basePath + this.moduleName + '.vuex.js');
+            this.template(this.type + '/umodule1.vuex.js', basePath + this.moduleName + '.state.js');
           }
           break;
 
@@ -163,11 +163,11 @@ module.exports = yeoman.generators.Base.extend({
 
             this.template(this.type + '/umodule1.vue', basePath + 'index/index.vue');
             this.template(this.type + '/umodule1.i18n.js', basePath + 'index/index.i18n.js');
-            this.template(this.type + '/umodule1.vuex.js', basePath + 'index/index.vuex.js');
+            this.template(this.type + '/umodule1.vuex.js', basePath + 'index/index.state.js');
           }else{
             this.template(this.type + '/umodule1.vue', basePath + this.moduleName + '.vue');
             this.template(this.type + '/umodule1.i18n.js', basePath + this.moduleName + '.i18n.js');
-            this.template(this.type + '/umodule1.vuex.js', basePath + this.moduleName + '.vuex.js');
+            this.template(this.type + '/umodule1.vuex.js', basePath + this.moduleName + '.state.js');
           }
           break;
 
@@ -180,13 +180,13 @@ module.exports = yeoman.generators.Base.extend({
             this.template(this.type + '/umodule1.service.js', this.moduleName + '/service.js');
             this.template(this.type + '/umodule1.vue', basePath + 'index/index.vue');
             this.template(this.type + '/umodule1.i18n.js', basePath + 'index/index.i18n.js');
-            this.template(this.type + '/umodule1.vuex.js', basePath + 'index/index.vuex.js');
+            this.template(this.type + '/umodule1.vuex.js', basePath + 'index/index.state.js');
             this.template(this.type + '/cardTpl.html', basePath + 'index/cardTpl.html');
           }else{
             this.template(this.type + '/cardTpl.html', basePath + '/cardTpl.html');
             this.template(this.type + '/umodule1.vue', basePath + this.moduleName + '.vue');
             this.template(this.type + '/umodule1.i18n.js', basePath + this.moduleName + '.i18n.js');
-            this.template(this.type + '/umodule1.vuex.js', basePath + this.moduleName + '.vuex.js');
+            this.template(this.type + '/umodule1.vuex.js', basePath + this.moduleName + '.state.js');
           }
           break;
 
@@ -199,13 +199,13 @@ module.exports = yeoman.generators.Base.extend({
             this.template(this.type + '/umodule1.service.js', this.moduleName + '/service.js');
             this.template(this.type + '/umodule1.vue', basePath + 'index/index.vue');
             this.template(this.type + '/umodule1.i18n.js', basePath + 'index/index.i18n.js');
-            this.template(this.type + '/umodule1.vuex.js', basePath + 'index/index.vuex.js');
+            this.template(this.type + '/umodule1.vuex.js', basePath + 'index/index.state.js');
             this.template(this.type + '/cardTpl.html', basePath + 'index/cardTpl.html');
           }else{
             this.template(this.type + '/cardTpl.html', basePath + '/cardTpl.html');
             this.template(this.type + '/umodule1.vue', basePath + this.moduleName + '.vue');
             this.template(this.type + '/umodule1.i18n.js', basePath + this.moduleName + '.i18n.js');
-            this.template(this.type + '/umodule1.vuex.js', basePath + this.moduleName + '.vuex.js');
+            this.template(this.type + '/umodule1.vuex.js', basePath + this.moduleName + '.state.js');
           }
           break;
 
@@ -218,11 +218,11 @@ module.exports = yeoman.generators.Base.extend({
             this.template(this.type + '/umodule1.service.js', this.moduleName + '/service.js');
             this.template(this.type + '/umodule1.vue', basePath + 'index/index.vue');
             this.template(this.type + '/umodule1.i18n.js', basePath + 'index/index.i18n.js');
-            this.template(this.type + '/umodule1.vuex.js', basePath + 'index/index.vuex.js');
+            this.template(this.type + '/umodule1.vuex.js', basePath + 'index/index.state.js');
           }else{
             this.template(this.type + '/umodule1.vue', basePath + this.moduleName + '.vue');
             this.template(this.type + '/umodule1.i18n.js', basePath + this.moduleName + '.i18n.js');
-            this.template(this.type + '/umodule1.vuex.js', basePath + this.moduleName + '.vuex.js');
+            this.template(this.type + '/umodule1.vuex.js', basePath + this.moduleName + '.state.js');
           }
           break;
 
@@ -235,11 +235,11 @@ module.exports = yeoman.generators.Base.extend({
             this.template(this.type + '/umodule1.service.js', this.moduleName + '/service.js');
             this.template(this.type + '/umodule1.vue', basePath + 'index/index.vue');
             this.template(this.type + '/umodule1.i18n.js', basePath + 'index/index.i18n.js');
-            this.template(this.type + '/umodule1.vuex.js', basePath + 'index/index.vuex.js');
+            this.template(this.type + '/umodule1.vuex.js', basePath + 'index/index.state.js');
           }else{
             this.template(this.type + '/umodule1.vue', basePath + this.moduleName + '.vue');
             this.template(this.type + '/umodule1.i18n.js', basePath + this.moduleName + '.i18n.js');
-            this.template(this.type + '/umodule1.vuex.js', basePath + this.moduleName + '.vuex.js');
+            this.template(this.type + '/umodule1.vuex.js', basePath + this.moduleName + '.state.js');
           }
           break;
 

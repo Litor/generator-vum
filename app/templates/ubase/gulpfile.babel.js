@@ -1,5 +1,5 @@
 import path from 'path';
-import ubase from 'ubase-vue';
+import ubase from 'ubase-ext-wecloud';
 
 ubase({
   // 输出路径

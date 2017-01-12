@@ -9,7 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "ubase-vue": "^1.0.48",
+    "ubase-ext-wecloud": "^1.0.3",
     "bh-vue": "^1.2.8",
     "wec-vue": "^0.1.7"
   }

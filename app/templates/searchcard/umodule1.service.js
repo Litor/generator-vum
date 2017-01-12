@@ -1,4 +1,4 @@
-let apiRootPath = 'jcsj-apiBaseNames-web';
+let apiRootPath = 'apiRootPath';
 let apiBaseName = '<%=moduleName %>';
 
 export default {
@@ -6,9 +6,7 @@ export default {
     demo: `/<%='${apiRootPath}'%>/<%='${apiBaseName}'%>/demo`
   },
 
-  demo(params) {
-    return Utils.post(this.api.demo, params).then(function(res) {
-      return res.datas;
-    });
+  post(api, params){
+    return Utils.post(this.api[api], params)
   }
 };
